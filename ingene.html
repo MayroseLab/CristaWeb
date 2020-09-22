@@ -56,6 +56,7 @@ function validate() {
 				var regex = /[AGCTUagctu\s]+/gi
 				var nospaceGenomicSeqVal = form.genomicSeq.value.replace(/\s/g, '')
 				var match = regex.exec(nospaceGenomicSeqVal)
+				var emailaddress = form.email_add.value
 				form.genomicSeq.value = nospaceGenomicSeqVal
 
 				if (nospaceGenomicSeqVal != match){
@@ -69,6 +70,8 @@ function validate() {
 					form.genomicSeq.focus()
 					return false
 				}
+
+				if (emailaddress.length)
 
 				return true
 			}
@@ -146,8 +149,9 @@ function validate() {
                 </font>
 
                 <br>
-                <font face="Arial"><br>Please enter your email address (Optional)
-                    <input type="text" name="email_add" size=50><br>
+                <font face="Arial"><br>Please enter your email address
+                    <input type="text" name="email_add" pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" required /><br>
+
                     <font size=2>Your email address will be used to update you the moment the results are
                         ready. </font>
                     <br><br>
