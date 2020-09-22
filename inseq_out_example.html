@@ -1,0 +1,3060 @@
+<HTML>
+<TITLE>CRISTA RUN NUMBER 1514796338</TITLE>
+
+<style type="text/css">
+.hidden{
+    display:none;
+}
+
+.unhidden{
+    display:block;
+}
+#menu {
+
+text-decoration: none;
+	color: white;
+font-size: 12px;
+font-weight: 700;
+}
+
+</style>
+<link rel="stylesheet" type="text/css" href="http://crista.tau.ac.il/results_pages.css">
+<script type="text/javascript" src="http://gloome.tau.ac.il/javascript_functions.js"></script>
+
+
+</HEAD>
+
+<H1 align=center>CRISTA Job Status Page </h1>
+
+<blockquote>
+
+    <p><font size="4">Your job status is:<b> Completed successfully.</b></font><br></p>
+    <p><font face=Verdana size=2>
+        <script type="text/javascript">
+function send_sgrna_to_offtargets_form(sgrna_val){
+	var url = "http://crista.tau.ac.il/findofftargets.html#form/sgRNA_seq=".concat(sgrna_val);
+	window.location = url;
+}
+
+
+function send_sgrna_lst_to_multiofftargets_form(){
+    var ul = document.getElementById("dynamic-list");
+    var i=0;
+    var st = "";
+    while(ul.childNodes[i]){
+        st = st.concat(ul.childNodes[i].id);
+        st = st.concat(",");
+        i++;
+    }
+    st = st.substring(0, st.length-1);
+	var url = "http://crista.tau.ac.il/findofftargets_multipleRNAs.html#form/sgRNA_seqs=".concat(st);
+	window.open(url);
+}
+
+
+function isEmpty(obj) {
+    for(var key in obj) {
+        if(obj.hasOwnProperty(key))
+            return false;
+    }
+    return true;
+}
+
+
+function addItem(checkboxElem){
+    var ul = document.getElementById("dynamic-list");
+    var candidate = checkboxElem;
+    var li = document.createElement("li");
+    li.setAttribute('id',candidate.value);
+    li.appendChild(document.createTextNode(candidate.value));
+    ul.appendChild(li);
+}
+
+function removeItem(checkboxElem){
+    var ul = document.getElementById("dynamic-list");
+    var candidate = checkboxElem;
+    var item = document.getElementById(candidate.value);
+    ul.removeChild(item);
+
+    if (!ul.childNodes[0]){
+        hide_div_name("search_button");
+    }
+}
+
+function addOrRemoveFromList(checkboxElem){
+  if (checkboxElem.checked) {
+    addItem(checkboxElem);
+    show_div_name("search_button");
+  } else {
+    removeItem(checkboxElem);
+  }
+
+function show_div_name(div_id){
+        var show = getElement( div_id );
+        show.style.display = 'block';
+}
+//------------------------------------
+function hide_div_name(div_id){
+        var show = getElement( div_id );
+        show.style.display = 'none';
+}
+}
+
+     </script>
+        Running mode: <b>Rank possible targets in a given nuclear sequence</b><br><br>
+        <u>Running parameters:</u> <br>
+        Genomic sequence: <a href="http://crista.tau.ac.il/results/1514796338/genomicSeq.txt">view attached file</a><br>
+        <br><br>CRISTA is now processing your request.<br>
+
+        This page will be automatically updated every 30 seconds. You can also reload it manually.<br>
+        Once the job has finished, the score will appear below.
+        <br><br>
+        If you wish to view these results at a later time without recalculating
+        them, please bookmark this page. The results will be kept in the server for three months.
+
+    </font></p>
+
+
+    <p><font face=Verdana size=4>
+        <br>-------------------------------------------------------------------------------------------------
+        <br><br>
+        Results:<br>
+    </font></p>
+
+    <p><font face=Verdana size=2>
+        <a href="CRISTA_offtargets_scores1514796338.csv" download>Download results with full features values</a>
+    </font></p>
+    <br><div class="tooltip">The score scale is in the interval [0,1].<span class="tooltiptext">The score represents the frequency of indels relative to a cleavage at the on-target of a highly efficient sgRNA. </span></div><br>
+
+    </font></p>
+
+
+    Thank you for using CRISTA!<br><table border="1" class="dataframe">
+    <font face=Verdana size=2>
+        <br><b>Click the relevant sgRNAs for finding off-targets.<br></b>
+        In the next window you will be able to edit your selection and select the reference genome.</b></font><br>
+    <ul id="dynamic-list"></ul>
+    <div id="search_button" class="hidden">
+    <input type=submit value="Take me to search off-targets for my selection!"
+           style="font-weight:bold;height: 35px;font-size:14"
+    onclick="javascript:send_sgrna_lst_to_multiofftargets_form()">
+        </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <br>
+    <br>
+    <thead>
+    <tr style="text-align: left;">
+        <th></th>
+        <th>aligned sgRNA</th>
+        <th>aligned site</th>
+        <th>strand</th>
+        <th>start position</th>
+        <th>end position</th>
+        <th>CRISTA score</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th>1</th>
+        <td>GGGGATAACCACGGGAGGCANGG</td>
+        <td>GGGGATAACCACGGGAGGCAGGG</td>
+        <td>-</td>
+        <td>806</td>
+        <td>828</td>
+        <td>1.00</td>
+        <td><input id="GGGGATAACCACGGGAGGCA" type="checkbox" name="GGGGATAACCACGGGAGGCA" value="GGGGATAACCACGGGAGGCA" onchange='javascript:addOrRemoveFromList(this)'></td>
+    </tr>
+    <tr>
+        <th>2</th>
+        <td>GGGATTGGAGGAGGGAGGGANGG</td>
+        <td>GGGATTGGAGGAGGGAGGGAGGG</td>
+        <td>+</td>
+        <td>128</td>
+        <td>150</td>
+        <td>1.00</td>
+        <td><input id="GGGATTGGAGGAGGGAGGGA" type="checkbox" name="GGGATTGGAGGAGGGAGGGA" value="GGGATTGGAGGAGGGAGGGA" onchange='javascript:addOrRemoveFromList(this)'></td>
+    </tr>
+    <tr>
+        <th>3</th>
+        <td>GTTGGGGATTGGAGGAGGGANGG</td>
+        <td>GTTGGGGATTGGAGGAGGGAGGG</td>
+        <td>+</td>
+        <td>124</td>
+        <td>146</td>
+        <td>1.00</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GTTGGGGATTGGAGGAGGGA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>4</th>
+        <td>GGGAGGCAGGGAGAAAGGCANGG</td>
+        <td>GGGAGGCAGGGAGAAAGGCAAGG</td>
+        <td>-</td>
+        <td>794</td>
+        <td>816</td>
+        <td>1.00</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GGGAGGCAGGGAGAAAGGCA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>5</th>
+        <td>CAAGACCTGGGGATAACCACNGG</td>
+        <td>CAAGACCTGGGGATAACCACGGG</td>
+        <td>-</td>
+        <td>814</td>
+        <td>836</td>
+        <td>0.98</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CAAGACCTGGGGATAACCAC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>6</th>
+        <td>ATAAGAAGGGGCAGGAGCCCNGG</td>
+        <td>ATAAGAAGGGGCAGGAGCCCTGG</td>
+        <td>-</td>
+        <td>891</td>
+        <td>913</td>
+        <td>0.98</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("ATAAGAAGGGGCAGGAGCCC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>7</th>
+        <td>CCTGGATCACACTGTAGCAANGG</td>
+        <td>CCTGGATCACACTGTAGCAAAGG</td>
+        <td>-</td>
+        <td>873</td>
+        <td>895</td>
+        <td>0.97</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CCTGGATCACACTGTAGCAA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>8</th>
+        <td>GGCAGGGAGAAAGGCAAGGANGG</td>
+        <td>GGCAGGGAGAAAGGCAAGGAAGG</td>
+        <td>-</td>
+        <td>790</td>
+        <td>812</td>
+        <td>0.97</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GGCAGGGAGAAAGGCAAGGA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>9</th>
+        <td>GCAAGTGGGCCCCCTCTACCNGG</td>
+        <td>GCAAGTGGGCCCCCTCTACCAGG</td>
+        <td>-</td>
+        <td>914</td>
+        <td>936</td>
+        <td>0.97</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GCAAGTGGGCCCCCTCTACC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>10</th>
+        <td>GGAGAGCCAGGTGGCTCCCANGG</td>
+        <td>GGAGAGCCAGGTGGCTCCCAGGG</td>
+        <td>-</td>
+        <td>374</td>
+        <td>396</td>
+        <td>0.97</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GGAGAGCCAGGTGGCTCCCA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>11</th>
+        <td>CCCCTCTACCAGGATAAGAANGG</td>
+        <td>CCCCTCTACCAGGATAAGAAGGG</td>
+        <td>-</td>
+        <td>904</td>
+        <td>926</td>
+        <td>0.96</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CCCCTCTACCAGGATAAGAA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>12</th>
+        <td>GGCTCTCCAAAAGCCCCTAANGG</td>
+        <td>GGCTCTCCAAAAGCCCCTAATGG</td>
+        <td>+</td>
+        <td>389</td>
+        <td>411</td>
+        <td>0.96</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GGCTCTCCAAAAGCCCCTAA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>13</th>
+        <td>GACTGGAACACCAAGACCTGNGG</td>
+        <td>GACTGGAACACCAAGACCTGGGG</td>
+        <td>-</td>
+        <td>825</td>
+        <td>847</td>
+        <td>0.96</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GACTGGAACACCAAGACCTG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>14</th>
+        <td>TTGAGTTGGGGATTGGAGGANGG</td>
+        <td>TTGAGTTGGGGATTGGAGGAGGG</td>
+        <td>+</td>
+        <td>120</td>
+        <td>142</td>
+        <td>0.96</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TTGAGTTGGGGATTGGAGGA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>15</th>
+        <td>TTGGAGGAGGGAGGGAGGGANGG</td>
+        <td>TTGGAGGAGGGAGGGAGGGAAGG</td>
+        <td>+</td>
+        <td>132</td>
+        <td>154</td>
+        <td>0.96</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TTGGAGGAGGGAGGGAGGGA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>16</th>
+        <td>TAAGGACGGACATAGAGGACNGG</td>
+        <td>TAAGGACGGACATAGAGGACTGG</td>
+        <td>-</td>
+        <td>842</td>
+        <td>864</td>
+        <td>0.96</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TAAGGACGGACATAGAGGAC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>17</th>
+        <td>CCCTCTACCAGGATAAGAAGNGG</td>
+        <td>CCCTCTACCAGGATAAGAAGGGG</td>
+        <td>-</td>
+        <td>903</td>
+        <td>925</td>
+        <td>0.96</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CCCTCTACCAGGATAAGAAG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>18</th>
+        <td>GCCCCTTCTTATCCTGGTAGNGG</td>
+        <td>GCCCCTTCTTATCCTGGTAGAGG</td>
+        <td>+</td>
+        <td>902</td>
+        <td>924</td>
+        <td>0.95</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GCCCCTTCTTATCCTGGTAG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>19</th>
+        <td>CTTGGGTTTTTCAGCAGCGGNGG</td>
+        <td>CTTGGGTTTTTCAGCAGCGGGGG</td>
+        <td>+</td>
+        <td>72</td>
+        <td>94</td>
+        <td>0.95</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CTTGGGTTTTTCAGCAGCGG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>20</th>
+        <td>GCTTGGGTTTTTCAGCAGCGNGG</td>
+        <td>GCTTGGGTTTTTCAGCAGCGGGG</td>
+        <td>+</td>
+        <td>71</td>
+        <td>93</td>
+        <td>0.95</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GCTTGGGTTTTTCAGCAGCG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>21</th>
+        <td>TTGGGTTTTTCAGCAGCGGGNGG</td>
+        <td>TTGGGTTTTTCAGCAGCGGGGGG</td>
+        <td>+</td>
+        <td>73</td>
+        <td>95</td>
+        <td>0.95</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TTGGGTTTTTCAGCAGCGGG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>22</th>
+        <td>GAGTTCTGATCCCTAGGACCNGG</td>
+        <td>GAGTTCTGATCCCTAGGACCTGG</td>
+        <td>+</td>
+        <td>307</td>
+        <td>329</td>
+        <td>0.95</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GAGTTCTGATCCCTAGGACC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>23</th>
+        <td>AATCTGGCTCTTATGGACACNGG</td>
+        <td>AATCTGGCTCTTATGGACACAGG</td>
+        <td>+</td>
+        <td>188</td>
+        <td>210</td>
+        <td>0.95</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("AATCTGGCTCTTATGGACAC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>24</th>
+        <td>CTTTGCTACAGTGTGATCCANGG</td>
+        <td>CTTTGCTACAGTGTGATCCAGGG</td>
+        <td>+</td>
+        <td>874</td>
+        <td>896</td>
+        <td>0.95</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CTTTGCTACAGTGTGATCCA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>25</th>
+        <td>CTACCAGGATAAGAAGGGGCNGG</td>
+        <td>CTACCAGGATAAGAAGGGGCAGG</td>
+        <td>-</td>
+        <td>899</td>
+        <td>921</td>
+        <td>0.94</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CTACCAGGATAAGAAGGGGC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>26</th>
+        <td>CAAAGGAATAAGAGTAAGGANGG</td>
+        <td>CAAAGGAATAAGAGTAAGGACGG</td>
+        <td>-</td>
+        <td>856</td>
+        <td>878</td>
+        <td>0.94</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CAAAGGAATAAGAGTAAGGA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>27</th>
+        <td>CCTTCTTATCCTGGTAGAGGNGG</td>
+        <td>CCTTCTTATCCTGGTAGAGGGGG</td>
+        <td>+</td>
+        <td>905</td>
+        <td>927</td>
+        <td>0.94</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CCTTCTTATCCTGGTAGAGG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>28</th>
+        <td>GCTGCAGCAAAAGGAAAAAGNGG</td>
+        <td>GCTGCAGCAAAAGGAAAAAGTGG</td>
+        <td>-</td>
+        <td>352</td>
+        <td>374</td>
+        <td>0.94</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GCTGCAGCAAAAGGAAAAAG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>29</th>
+        <td>AGGACTGGAACACCAAGACCNGG</td>
+        <td>AGGACTGGAACACCAAGACCTGG</td>
+        <td>-</td>
+        <td>827</td>
+        <td>849</td>
+        <td>0.94</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("AGGACTGGAACACCAAGACC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>30</th>
+        <td>GCTGTGTTGGTTTTCACACANGG</td>
+        <td>GCTGTGTTGGTTTTCACACAGGG</td>
+        <td>+</td>
+        <td>157</td>
+        <td>179</td>
+        <td>0.94</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GCTGTGTTGGTTTTCACACA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>31</th>
+        <td>AAGAGTAAGGACGGACATAGNGG</td>
+        <td>AAGAGTAAGGACGGACATAGAGG</td>
+        <td>-</td>
+        <td>847</td>
+        <td>869</td>
+        <td>0.94</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("AAGAGTAAGGACGGACATAG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>32</th>
+        <td>TTTCCTTTTGCTGCAGCCCTNGG</td>
+        <td>TTTCCTTTTGCTGCAGCCCTGGG</td>
+        <td>+</td>
+        <td>358</td>
+        <td>380</td>
+        <td>0.94</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TTTCCTTTTGCTGCAGCCCT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>33</th>
+        <td>ACACCACTAACAAGGAGCACNGG</td>
+        <td>ACACCACTAACAAGGAGCACAGG</td>
+        <td>+</td>
+        <td>645</td>
+        <td>667</td>
+        <td>0.94</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("ACACCACTAACAAGGAGCAC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>34</th>
+        <td>CTGGGAAATTGTCTCCGCCANGG</td>
+        <td>CTGGGAAATTGTCTCCGCCATGG</td>
+        <td>+</td>
+        <td>936</td>
+        <td>958</td>
+        <td>0.94</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CTGGGAAATTGTCTCCGCCA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>35</th>
+        <td>GCTCCCAGGGCTGCAGCAAANGG</td>
+        <td>GCTCCCAGGGCTGCAGCAAAAGG</td>
+        <td>-</td>
+        <td>361</td>
+        <td>383</td>
+        <td>0.94</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GCTCCCAGGGCTGCAGCAAA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>36</th>
+        <td>CTGCAGCCCTGGGAGCCACCNGG</td>
+        <td>CTGCAGCCCTGGGAGCCACCTGG</td>
+        <td>+</td>
+        <td>368</td>
+        <td>390</td>
+        <td>0.93</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CTGCAGCCCTGGGAGCCACC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>37</th>
+        <td>ATTTCCACATGTTGTAGCTGNGG</td>
+        <td>ATTTCCACATGTTGTAGCTGGGG</td>
+        <td>+</td>
+        <td>581</td>
+        <td>603</td>
+        <td>0.93</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("ATTTCCACATGTTGTAGCTG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>38</th>
+        <td>GATAATCTGACTTTGGAGCTNGG</td>
+        <td>GATAATCTGACTTTGGAGCTGGG</td>
+        <td>+</td>
+        <td>707</td>
+        <td>729</td>
+        <td>0.93</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GATAATCTGACTTTGGAGCT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>39</th>
+        <td>TGGGGCCCATTAGGGGCTTTNGG</td>
+        <td>TGGGGCCCATTAGGGGCTTTTGG</td>
+        <td>-</td>
+        <td>395</td>
+        <td>417</td>
+        <td>0.93</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TGGGGCCCATTAGGGGCTTT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>40</th>
+        <td>GGAAAAAGTGGGGTGCTCAGNGG</td>
+        <td>GGAAAAAGTGGGGTGCTCAGGGG</td>
+        <td>-</td>
+        <td>340</td>
+        <td>362</td>
+        <td>0.93</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GGAAAAAGTGGGGTGCTCAG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>41</th>
+        <td>AAGCTTGGGTTTTTCAGCAGNGG</td>
+        <td>AAGCTTGGGTTTTTCAGCAGCGG</td>
+        <td>+</td>
+        <td>69</td>
+        <td>91</td>
+        <td>0.93</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("AAGCTTGGGTTTTTCAGCAG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>42</th>
+        <td>TATTGATTGGGGCCCATTAGNGG</td>
+        <td>TATTGATTGGGGCCCATTAGGGG</td>
+        <td>-</td>
+        <td>402</td>
+        <td>424</td>
+        <td>0.93</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TATTGATTGGGGCCCATTAG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>43</th>
+        <td>CCAGGTAGAAATAGTAGCTTNGG</td>
+        <td>CCAGGTAGAAATAGTAGCTTTGG</td>
+        <td>+</td>
+        <td>263</td>
+        <td>285</td>
+        <td>0.93</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CCAGGTAGAAATAGTAGCTT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>44</th>
+        <td>TTAGGGGCTTTTGGAGAGCCNGG</td>
+        <td>TTAGGGGCTTTTGGAGAGCCAGG</td>
+        <td>-</td>
+        <td>386</td>
+        <td>408</td>
+        <td>0.93</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TTAGGGGCTTTTGGAGAGCC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>45</th>
+        <td>AGGAAAAAGTGGGGTGCTCANGG</td>
+        <td>AGGAAAAAGTGGGGTGCTCAGGG</td>
+        <td>-</td>
+        <td>341</td>
+        <td>363</td>
+        <td>0.93</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("AGGAAAAAGTGGGGTGCTCA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>46</th>
+        <td>CCAAGACCTGGGGATAACCANGG</td>
+        <td>CCAAGACCTGGGGATAACCACGG</td>
+        <td>-</td>
+        <td>815</td>
+        <td>837</td>
+        <td>0.93</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CCAAGACCTGGGGATAACCA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>47</th>
+        <td>TGCAGCAAAAGGAAAAAGTGNGG</td>
+        <td>TGCAGCAAAAGGAAAAAGTGGGG</td>
+        <td>-</td>
+        <td>350</td>
+        <td>372</td>
+        <td>0.93</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TGCAGCAAAAGGAAAAAGTG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>48</th>
+        <td>TGGAGAGCCAGGTGGCTCCCNGG</td>
+        <td>TGGAGAGCCAGGTGGCTCCCAGG</td>
+        <td>-</td>
+        <td>375</td>
+        <td>397</td>
+        <td>0.93</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TGGAGAGCCAGGTGGCTCCC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>49</th>
+        <td>GGGGAACGTGCTACTCAGAGNGG</td>
+        <td>GGGGAACGTGCTACTCAGAGAGG</td>
+        <td>+</td>
+        <td>600</td>
+        <td>622</td>
+        <td>0.93</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GGGGAACGTGCTACTCAGAG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>50</th>
+        <td>GCTCTCCAAAAGCCCCTAATNGG</td>
+        <td>GCTCTCCAAAAGCCCCTAATGGG</td>
+        <td>+</td>
+        <td>390</td>
+        <td>412</td>
+        <td>0.93</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GCTCTCCAAAAGCCCCTAAT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>51</th>
+        <td>GTAGCAAAGGAATAAGAGTANGG</td>
+        <td>GTAGCAAAGGAATAAGAGTAAGG</td>
+        <td>-</td>
+        <td>860</td>
+        <td>882</td>
+        <td>0.93</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GTAGCAAAGGAATAAGAGTA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>52</th>
+        <td>GACCTGGGGATAACCACGGGNGG</td>
+        <td>GACCTGGGGATAACCACGGGAGG</td>
+        <td>-</td>
+        <td>811</td>
+        <td>833</td>
+        <td>0.93</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GACCTGGGGATAACCACGGG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>53</th>
+        <td>TTTTCCTTTTGCTGCAGCCCNGG</td>
+        <td>TTTTCCTTTTGCTGCAGCCCTGG</td>
+        <td>+</td>
+        <td>357</td>
+        <td>379</td>
+        <td>0.93</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TTTTCCTTTTGCTGCAGCCC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>54</th>
+        <td>CCTTTGCTACAGTGTGATCCNGG</td>
+        <td>CCTTTGCTACAGTGTGATCCAGG</td>
+        <td>+</td>
+        <td>873</td>
+        <td>895</td>
+        <td>0.92</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CCTTTGCTACAGTGTGATCC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>55</th>
+        <td>GGCATGTGGCTTATCATAGANGG</td>
+        <td>GGCATGTGGCTTATCATAGAGGG</td>
+        <td>+</td>
+        <td>229</td>
+        <td>251</td>
+        <td>0.92</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GGCATGTGGCTTATCATAGA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>56</th>
+        <td>GGACTGGAACACCAAGACCTNGG</td>
+        <td>GGACTGGAACACCAAGACCTGGG</td>
+        <td>-</td>
+        <td>826</td>
+        <td>848</td>
+        <td>0.92</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GGACTGGAACACCAAGACCT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>57</th>
+        <td>CCGTGGTTATCCCCAGGTCTNGG</td>
+        <td>CCGTGGTTATCCCCAGGTCTTGG</td>
+        <td>+</td>
+        <td>815</td>
+        <td>837</td>
+        <td>0.92</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CCGTGGTTATCCCCAGGTCT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>58</th>
+        <td>CGTTCCCCAGCTACAACATGNGG</td>
+        <td>CGTTCCCCAGCTACAACATGTGG</td>
+        <td>-</td>
+        <td>585</td>
+        <td>607</td>
+        <td>0.92</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CGTTCCCCAGCTACAACATG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>59</th>
+        <td>CCCTTCTTATCCTGGTAGAGNGG</td>
+        <td>CCCTTCTTATCCTGGTAGAGGGG</td>
+        <td>+</td>
+        <td>904</td>
+        <td>926</td>
+        <td>0.92</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CCCTTCTTATCCTGGTAGAG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>60</th>
+        <td>ACCACGGGAGGCAGGGAGAANGG</td>
+        <td>ACCACGGGAGGCAGGGAGAAAGG</td>
+        <td>-</td>
+        <td>799</td>
+        <td>821</td>
+        <td>0.92</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("ACCACGGGAGGCAGGGAGAA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>61</th>
+        <td>TGGGGTGCTCAGGGGCGATTNGG</td>
+        <td>TGGGGTGCTCAGGGGCGATTCGG</td>
+        <td>-</td>
+        <td>332</td>
+        <td>354</td>
+        <td>0.92</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TGGGGTGCTCAGGGGCGATT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>62</th>
+        <td>CGATTCGGAGCCAGGTCCTANGG</td>
+        <td>CGATTCGGAGCCAGGTCCTAGGG</td>
+        <td>-</td>
+        <td>317</td>
+        <td>339</td>
+        <td>0.92</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CGATTCGGAGCCAGGTCCTA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>63</th>
+        <td>TAGGGATCAGAACTCATGCCNGG</td>
+        <td>TAGGGATCAGAACTCATGCCTGG</td>
+        <td>-</td>
+        <td>299</td>
+        <td>321</td>
+        <td>0.92</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TAGGGATCAGAACTCATGCC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>64</th>
+        <td>GGTTTTGAGTTGGGGATTGGNGG</td>
+        <td>GGTTTTGAGTTGGGGATTGGAGG</td>
+        <td>+</td>
+        <td>116</td>
+        <td>138</td>
+        <td>0.92</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GGTTTTGAGTTGGGGATTGG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>65</th>
+        <td>GATAAGCCACATGCCATATCNGG</td>
+        <td>GATAAGCCACATGCCATATCCGG</td>
+        <td>-</td>
+        <td>221</td>
+        <td>243</td>
+        <td>0.92</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GATAAGCCACATGCCATATC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>66</th>
+        <td>CCAAAGCTACTATTTCTACCNGG</td>
+        <td>CCAAAGCTACTATTTCTACCTGG</td>
+        <td>-</td>
+        <td>263</td>
+        <td>285</td>
+        <td>0.92</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CCAAAGCTACTATTTCTACC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>67</th>
+        <td>TGAGGTCCACACCACTAACANGG</td>
+        <td>TGAGGTCCACACCACTAACAAGG</td>
+        <td>+</td>
+        <td>637</td>
+        <td>659</td>
+        <td>0.92</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TGAGGTCCACACCACTAACA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>68</th>
+        <td>TGGCATGTGGCTTATCATAGNGG</td>
+        <td>TGGCATGTGGCTTATCATAGAGG</td>
+        <td>+</td>
+        <td>228</td>
+        <td>250</td>
+        <td>0.92</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TGGCATGTGGCTTATCATAG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>69</th>
+        <td>CTCAGGGGCGATTCGGAGCCNGG</td>
+        <td>CTCAGGGGCGATTCGGAGCCAGG</td>
+        <td>-</td>
+        <td>325</td>
+        <td>347</td>
+        <td>0.91</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CTCAGGGGCGATTCGGAGCC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>70</th>
+        <td>GGAGACAATTTCCCAGCAAGNGG</td>
+        <td>GGAGACAATTTCCCAGCAAGTGG</td>
+        <td>-</td>
+        <td>929</td>
+        <td>951</td>
+        <td>0.91</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GGAGACAATTTCCCAGCAAG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>71</th>
+        <td>TAGAGGGCAGATTTGCAGCCNGG</td>
+        <td>TAGAGGGCAGATTTGCAGCCAGG</td>
+        <td>+</td>
+        <td>245</td>
+        <td>267</td>
+        <td>0.91</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TAGAGGGCAGATTTGCAGCC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>72</th>
+        <td>GGGGATTGGAGGAGGGAGGGNGG</td>
+        <td>GGGGATTGGAGGAGGGAGGGAGG</td>
+        <td>+</td>
+        <td>127</td>
+        <td>149</td>
+        <td>0.91</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GGGGATTGGAGGAGGGAGGG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>73</th>
+        <td>CTGCAGCAAAAGGAAAAAGTNGG</td>
+        <td>CTGCAGCAAAAGGAAAAAGTGGG</td>
+        <td>-</td>
+        <td>351</td>
+        <td>373</td>
+        <td>0.91</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CTGCAGCAAAAGGAAAAAGT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>74</th>
+        <td>GGTAGAGGGGGCCCACTTGCNGG</td>
+        <td>GGTAGAGGGGGCCCACTTGCTGG</td>
+        <td>+</td>
+        <td>917</td>
+        <td>939</td>
+        <td>0.91</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GGTAGAGGGGGCCCACTTGC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>75</th>
+        <td>AAGAAGACAAACAGTAAGCTNGG</td>
+        <td>AAGAAGACAAACAGTAAGCTTGG</td>
+        <td>+</td>
+        <td>54</td>
+        <td>76</td>
+        <td>0.91</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("AAGAAGACAAACAGTAAGCT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>76</th>
+        <td>CACAGCAGCAACCTCAGCTGNGG</td>
+        <td>CACAGCAGCAACCTCAGCTGAGG</td>
+        <td>-</td>
+        <td>13</td>
+        <td>35</td>
+        <td>0.91</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CACAGCAGCAACCTCAGCTG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>77</th>
+        <td>GGTCCGGATATGAGCATGTGNGG</td>
+        <td>GGTCCGGATATGAGCATGTGGGG</td>
+        <td>+</td>
+        <td>673</td>
+        <td>695</td>
+        <td>0.91</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GGTCCGGATATGAGCATGTG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>78</th>
+        <td>CCCCTTCTTATCCTGGTAGANGG</td>
+        <td>CCCCTTCTTATCCTGGTAGAGGG</td>
+        <td>+</td>
+        <td>903</td>
+        <td>925</td>
+        <td>0.91</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CCCCTTCTTATCCTGGTAGA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>79</th>
+        <td>TTTGAGTTGGGGATTGGAGGNGG</td>
+        <td>TTTGAGTTGGGGATTGGAGGAGG</td>
+        <td>+</td>
+        <td>119</td>
+        <td>141</td>
+        <td>0.91</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TTTGAGTTGGGGATTGGAGG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>80</th>
+        <td>TGGTCCGGATATGAGCATGTNGG</td>
+        <td>TGGTCCGGATATGAGCATGTGGG</td>
+        <td>+</td>
+        <td>672</td>
+        <td>694</td>
+        <td>0.91</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TGGTCCGGATATGAGCATGT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>81</th>
+        <td>AGATAATCTGACTTTGGAGCNGG</td>
+        <td>AGATAATCTGACTTTGGAGCTGG</td>
+        <td>+</td>
+        <td>706</td>
+        <td>728</td>
+        <td>0.91</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("AGATAATCTGACTTTGGAGC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>82</th>
+        <td>GGAAATAACAGTACATCGCGNGG</td>
+        <td>GGAAATAACAGTACATCGCGGGG</td>
+        <td>-</td>
+        <td>564</td>
+        <td>586</td>
+        <td>0.90</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GGAAATAACAGTACATCGCG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>83</th>
+        <td>AGGCATGAGTTCTGATCCCTNGG</td>
+        <td>AGGCATGAGTTCTGATCCCTAGG</td>
+        <td>+</td>
+        <td>301</td>
+        <td>323</td>
+        <td>0.90</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("AGGCATGAGTTCTGATCCCT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>84</th>
+        <td>AATATTCTCAGATGGAGAATNGG</td>
+        <td>AATATTCTCAGATGGAGAATAGG</td>
+        <td>-</td>
+        <td>754</td>
+        <td>776</td>
+        <td>0.90</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("AATATTCTCAGATGGAGAAT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>85</th>
+        <td>GTGGAAATAACAGTACATCGNGG</td>
+        <td>GTGGAAATAACAGTACATCGCGG</td>
+        <td>-</td>
+        <td>566</td>
+        <td>588</td>
+        <td>0.90</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GTGGAAATAACAGTACATCG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>86</th>
+        <td>CTTATGGACACAGGACTGTGNGG</td>
+        <td>CTTATGGACACAGGACTGTGTGG</td>
+        <td>+</td>
+        <td>197</td>
+        <td>219</td>
+        <td>0.90</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CTTATGGACACAGGACTGTG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>87</th>
+        <td>CCCCCTCTACCAGGATAAGANGG</td>
+        <td>CCCCCTCTACCAGGATAAGAAGG</td>
+        <td>-</td>
+        <td>905</td>
+        <td>927</td>
+        <td>0.90</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CCCCCTCTACCAGGATAAGA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>88</th>
+        <td>GCGATTCGGAGCCAGGTCCTNGG</td>
+        <td>GCGATTCGGAGCCAGGTCCTAGG</td>
+        <td>-</td>
+        <td>318</td>
+        <td>340</td>
+        <td>0.90</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GCGATTCGGAGCCAGGTCCT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>89</th>
+        <td>GTATTGATTGGGGCCCATTANGG</td>
+        <td>GTATTGATTGGGGCCCATTAGGG</td>
+        <td>-</td>
+        <td>403</td>
+        <td>425</td>
+        <td>0.90</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GTATTGATTGGGGCCCATTA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>90</th>
+        <td>ATACCTGTGCTCCTTGTTAGNGG</td>
+        <td>ATACCTGTGCTCCTTGTTAGTGG</td>
+        <td>-</td>
+        <td>648</td>
+        <td>670</td>
+        <td>0.90</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("ATACCTGTGCTCCTTGTTAG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>91</th>
+        <td>ACACAGGGATTGATGGAATCNGG</td>
+        <td>ACACAGGGATTGATGGAATCTGG</td>
+        <td>+</td>
+        <td>172</td>
+        <td>194</td>
+        <td>0.90</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("ACACAGGGATTGATGGAATC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>92</th>
+        <td>GGGGCTTTTGGAGAGCCAGGNGG</td>
+        <td>GGGGCTTTTGGAGAGCCAGGTGG</td>
+        <td>-</td>
+        <td>383</td>
+        <td>405</td>
+        <td>0.90</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GGGGCTTTTGGAGAGCCAGG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>93</th>
+        <td>AGCTTGGGTTTTTCAGCAGCNGG</td>
+        <td>AGCTTGGGTTTTTCAGCAGCGGG</td>
+        <td>+</td>
+        <td>70</td>
+        <td>92</td>
+        <td>0.90</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("AGCTTGGGTTTTTCAGCAGC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>94</th>
+        <td>GTGGTCCGGATATGAGCATGNGG</td>
+        <td>GTGGTCCGGATATGAGCATGTGG</td>
+        <td>+</td>
+        <td>671</td>
+        <td>693</td>
+        <td>0.90</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GTGGTCCGGATATGAGCATG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>95</th>
+        <td>GTACATCGCGGGGCCTTAAANGG</td>
+        <td>GTACATCGCGGGGCCTTAAAAGG</td>
+        <td>-</td>
+        <td>554</td>
+        <td>576</td>
+        <td>0.90</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GTACATCGCGGGGCCTTAAA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>96</th>
+        <td>AGTTGGGGATTGGAGGAGGGNGG</td>
+        <td>AGTTGGGGATTGGAGGAGGGAGG</td>
+        <td>+</td>
+        <td>123</td>
+        <td>145</td>
+        <td>0.90</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("AGTTGGGGATTGGAGGAGGG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>97</th>
+        <td>TGGGGATAACCACGGGAGGCNGG</td>
+        <td>TGGGGATAACCACGGGAGGCAGG</td>
+        <td>-</td>
+        <td>807</td>
+        <td>829</td>
+        <td>0.90</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TGGGGATAACCACGGGAGGC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>98</th>
+        <td>TGCCTCCCGTGGTTATCCCCNGG</td>
+        <td>TGCCTCCCGTGGTTATCCCCAGG</td>
+        <td>+</td>
+        <td>809</td>
+        <td>831</td>
+        <td>0.90</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TGCCTCCCGTGGTTATCCCC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>99</th>
+        <td>AACCCCCACATGCTCATATCNGG</td>
+        <td>AACCCCCACATGCTCATATCCGG</td>
+        <td>-</td>
+        <td>676</td>
+        <td>698</td>
+        <td>0.89</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("AACCCCCACATGCTCATATC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>100</th>
+        <td>CACACAACATGGATAAACCANGG</td>
+        <td>CACACAACATGGATAAACCATGG</td>
+        <td>-</td>
+        <td>953</td>
+        <td>975</td>
+        <td>0.89</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CACACAACATGGATAAACCA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>101</th>
+        <td>GCCTTTCTCCCTGCCTCCCGNGG</td>
+        <td>GCCTTTCTCCCTGCCTCCCGTGG</td>
+        <td>+</td>
+        <td>798</td>
+        <td>820</td>
+        <td>0.89</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GCCTTTCTCCCTGCCTCCCG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>102</th>
+        <td>TGTGGTCCGGATATGGCATGNGG</td>
+        <td>TGTGGTCCGGATATGGCATGTGG</td>
+        <td>+</td>
+        <td>215</td>
+        <td>237</td>
+        <td>0.89</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TGTGGTCCGGATATGGCATG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>103</th>
+        <td>AGGACTGTGTGGTCCGGATANGG</td>
+        <td>AGGACTGTGTGGTCCGGATATGG</td>
+        <td>+</td>
+        <td>208</td>
+        <td>230</td>
+        <td>0.89</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("AGGACTGTGTGGTCCGGATA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>104</th>
+        <td>TTCTTTGTGGTTTTGAGTTGNGG</td>
+        <td>TTCTTTGTGGTTTTGAGTTGGGG</td>
+        <td>+</td>
+        <td>108</td>
+        <td>130</td>
+        <td>0.89</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TTCTTTGTGGTTTTGAGTTG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>105</th>
+        <td>GGTATTGATTGGGGCCCATTNGG</td>
+        <td>GGTATTGATTGGGGCCCATTAGG</td>
+        <td>-</td>
+        <td>404</td>
+        <td>426</td>
+        <td>0.89</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GGTATTGATTGGGGCCCATT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>106</th>
+        <td>TGTGGTTTTGAGTTGGGGATNGG</td>
+        <td>TGTGGTTTTGAGTTGGGGATTGG</td>
+        <td>+</td>
+        <td>113</td>
+        <td>135</td>
+        <td>0.89</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TGTGGTTTTGAGTTGGGGAT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>107</th>
+        <td>AGAAGACAAACAGTAAGCTTNGG</td>
+        <td>AGAAGACAAACAGTAAGCTTGGG</td>
+        <td>+</td>
+        <td>55</td>
+        <td>77</td>
+        <td>0.89</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("AGAAGACAAACAGTAAGCTT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>108</th>
+        <td>GAGACAATTTCCCAGCAAGTNGG</td>
+        <td>GAGACAATTTCCCAGCAAGTGGG</td>
+        <td>-</td>
+        <td>928</td>
+        <td>950</td>
+        <td>0.89</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GAGACAATTTCCCAGCAAGT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>109</th>
+        <td>AGCTGTGTTGGTTTTCACACNGG</td>
+        <td>AGCTGTGTTGGTTTTCACACAGG</td>
+        <td>+</td>
+        <td>156</td>
+        <td>178</td>
+        <td>0.89</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("AGCTGTGTTGGTTTTCACAC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>110</th>
+        <td>TGGAAATAACAGTACATCGCNGG</td>
+        <td>TGGAAATAACAGTACATCGCGGG</td>
+        <td>-</td>
+        <td>565</td>
+        <td>587</td>
+        <td>0.88</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TGGAAATAACAGTACATCGC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>111</th>
+        <td>AGGGATCAGAACTCATGCCTNGG</td>
+        <td>AGGGATCAGAACTCATGCCTGGG</td>
+        <td>-</td>
+        <td>298</td>
+        <td>320</td>
+        <td>0.88</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("AGGGATCAGAACTCATGCCT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>112</th>
+        <td>CAGCTGCCTCACCACATTTANGG</td>
+        <td>CAGCTGCCTCACCACATTTAAGG</td>
+        <td>-</td>
+        <td>440</td>
+        <td>462</td>
+        <td>0.88</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CAGCTGCCTCACCACATTTA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>113</th>
+        <td>AAATCCAGATAATCTGACTTNGG</td>
+        <td>AAATCCAGATAATCTGACTTTGG</td>
+        <td>+</td>
+        <td>700</td>
+        <td>722</td>
+        <td>0.88</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("AAATCCAGATAATCTGACTT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>114</th>
+        <td>GTCCGGATATGAGCATGTGGNGG</td>
+        <td>GTCCGGATATGAGCATGTGGGGG</td>
+        <td>+</td>
+        <td>674</td>
+        <td>696</td>
+        <td>0.88</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GTCCGGATATGAGCATGTGG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>115</th>
+        <td>GGTTTTCACACAGGGATTGANGG</td>
+        <td>GGTTTTCACACAGGGATTGATGG</td>
+        <td>+</td>
+        <td>165</td>
+        <td>187</td>
+        <td>0.88</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GGTTTTCACACAGGGATTGA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>116</th>
+        <td>ACAACATGGATAAACCATGGNGG</td>
+        <td>ACAACATGGATAAACCATGGCGG</td>
+        <td>-</td>
+        <td>950</td>
+        <td>972</td>
+        <td>0.88</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("ACAACATGGATAAACCATGG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>117</th>
+        <td>GTAGAGGGGGCCCACTTGCTNGG</td>
+        <td>GTAGAGGGGGCCCACTTGCTGGG</td>
+        <td>+</td>
+        <td>918</td>
+        <td>940</td>
+        <td>0.88</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GTAGAGGGGGCCCACTTGCT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>118</th>
+        <td>TTGATGGAATCTGGCTCTTANGG</td>
+        <td>TTGATGGAATCTGGCTCTTATGG</td>
+        <td>+</td>
+        <td>181</td>
+        <td>203</td>
+        <td>0.88</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TTGATGGAATCTGGCTCTTA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>119</th>
+        <td>TCACTAATGGACACACAACANGG</td>
+        <td>TCACTAATGGACACACAACATGG</td>
+        <td>-</td>
+        <td>964</td>
+        <td>986</td>
+        <td>0.88</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TCACTAATGGACACACAACA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>120</th>
+        <td>GCTCCTGCCCCTTCTTATCCNGG</td>
+        <td>GCTCCTGCCCCTTCTTATCCTGG</td>
+        <td>+</td>
+        <td>896</td>
+        <td>918</td>
+        <td>0.88</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GCTCCTGCCCCTTCTTATCC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>121</th>
+        <td>GGGAGGGAAGGAAGCTGTGTNGG</td>
+        <td>GGGAGGGAAGGAAGCTGTGTTGG</td>
+        <td>+</td>
+        <td>144</td>
+        <td>166</td>
+        <td>0.88</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GGGAGGGAAGGAAGCTGTGT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>122</th>
+        <td>CTCAGCTGAGGTTGCTGCTGNGG</td>
+        <td>CTCAGCTGAGGTTGCTGCTGTGG</td>
+        <td>+</td>
+        <td>14</td>
+        <td>36</td>
+        <td>0.88</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CTCAGCTGAGGTTGCTGCTG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>123</th>
+        <td>GAGGTTAAGTAACTTGTCTGNGG</td>
+        <td>GAGGTTAAGTAACTTGTCTGAGG</td>
+        <td>+</td>
+        <td>619</td>
+        <td>641</td>
+        <td>0.88</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GAGGTTAAGTAACTTGTCTG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>124</th>
+        <td>TAACAAGGAGCACAGGTATGNGG</td>
+        <td>TAACAAGGAGCACAGGTATGTGG</td>
+        <td>+</td>
+        <td>652</td>
+        <td>674</td>
+        <td>0.88</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TAACAAGGAGCACAGGTATG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>125</th>
+        <td>TTTGGTTTGTGCTACTGCCCNGG</td>
+        <td>TTTGGTTTGTGCTACTGCCCAGG</td>
+        <td>+</td>
+        <td>281</td>
+        <td>303</td>
+        <td>0.88</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TTTGGTTTGTGCTACTGCCC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>126</th>
+        <td>AGCTCCAAAGTCAGATTATCNGG</td>
+        <td>AGCTCCAAAGTCAGATTATCTGG</td>
+        <td>-</td>
+        <td>704</td>
+        <td>726</td>
+        <td>0.87</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("AGCTCCAAAGTCAGATTATC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>127</th>
+        <td>TCAAATTAATACCTTAAATGNGG</td>
+        <td>TCAAATTAATACCTTAAATGTGG</td>
+        <td>+</td>
+        <td>429</td>
+        <td>451</td>
+        <td>0.87</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TCAAATTAATACCTTAAATG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>128</th>
+        <td>TTTGTCTTCTTCTGAAAGTGNGG</td>
+        <td>TTTGTCTTCTTCTGAAAGTGAGG</td>
+        <td>-</td>
+        <td>42</td>
+        <td>64</td>
+        <td>0.87</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TTTGTCTTCTTCTGAAAGTG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>129</th>
+        <td>TATTTCCACATGTTGTAGCTNGG</td>
+        <td>TATTTCCACATGTTGTAGCTGGG</td>
+        <td>+</td>
+        <td>580</td>
+        <td>602</td>
+        <td>0.87</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TATTTCCACATGTTGTAGCT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>130</th>
+        <td>AAGGAAAAAGTGGGGTGCTCNGG</td>
+        <td>AAGGAAAAAGTGGGGTGCTCAGG</td>
+        <td>-</td>
+        <td>342</td>
+        <td>364</td>
+        <td>0.87</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("AAGGAAAAAGTGGGGTGCTC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>131</th>
+        <td>TTTGGAGCTGGGCTTTTCAGNGG</td>
+        <td>TTTGGAGCTGGGCTTTTCAGTGG</td>
+        <td>+</td>
+        <td>718</td>
+        <td>740</td>
+        <td>0.86</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TTTGGAGCTGGGCTTTTCAG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>132</th>
+        <td>GGACACAGGACTGTGTGGTCNGG</td>
+        <td>GGACACAGGACTGTGTGGTCCGG</td>
+        <td>+</td>
+        <td>202</td>
+        <td>224</td>
+        <td>0.86</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GGACACAGGACTGTGTGGTC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>133</th>
+        <td>GAAACTTCAATATTCTCAGANGG</td>
+        <td>GAAACTTCAATATTCTCAGATGG</td>
+        <td>-</td>
+        <td>762</td>
+        <td>784</td>
+        <td>0.86</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GAAACTTCAATATTCTCAGA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>134</th>
+        <td>AGGAGCACAGGTATGTGGTCNGG</td>
+        <td>AGGAGCACAGGTATGTGGTCCGG</td>
+        <td>+</td>
+        <td>657</td>
+        <td>679</td>
+        <td>0.85</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("AGGAGCACAGGTATGTGGTC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>135</th>
+        <td>TTTCTTTGTGGTTTTGAGTTNGG</td>
+        <td>TTTCTTTGTGGTTTTGAGTTGGG</td>
+        <td>+</td>
+        <td>107</td>
+        <td>129</td>
+        <td>0.85</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TTTCTTTGTGGTTTTGAGTT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>136</th>
+        <td>ATGCTGATCACTAACTGATTNGG</td>
+        <td>ATGCTGATCACTAACTGATTAGG</td>
+        <td>+</td>
+        <td>511</td>
+        <td>533</td>
+        <td>0.85</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("ATGCTGATCACTAACTGATT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>137</th>
+        <td>TGTGCTCCTTGTTAGTGGTGNGG</td>
+        <td>TGTGCTCCTTGTTAGTGGTGTGG</td>
+        <td>-</td>
+        <td>643</td>
+        <td>665</td>
+        <td>0.84</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TGTGCTCCTTGTTAGTGGTG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>138</th>
+        <td>CTGCCATGCAACTTATAATTNGG</td>
+        <td>CTGCCATGCAACTTATAATTTGG</td>
+        <td>-</td>
+        <td>477</td>
+        <td>499</td>
+        <td>0.84</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CTGCCATGCAACTTATAATT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>139</th>
+        <td>AATTTGAATGGTATTGATTGNGG</td>
+        <td>AATTTGAATGGTATTGATTGGGG</td>
+        <td>-</td>
+        <td>413</td>
+        <td>435</td>
+        <td>0.84</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("AATTTGAATGGTATTGATTG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>140</th>
+        <td>TTATTTCCACATGTTGTAGCNGG</td>
+        <td>TTATTTCCACATGTTGTAGCTGG</td>
+        <td>+</td>
+        <td>579</td>
+        <td>601</td>
+        <td>0.84</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TTATTTCCACATGTTGTAGC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>141</th>
+        <td>GTTCTCTCATTTTTTCTTTGNGG</td>
+        <td>GTTCTCTCATTTTTTCTTTGTGG</td>
+        <td>+</td>
+        <td>95</td>
+        <td>117</td>
+        <td>0.83</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GTTCTCTCATTTTTTCTTTG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>142</th>
+        <td>TTAATACCTTAAATGTGGTGNGG</td>
+        <td>TTAATACCTTAAATGTGGTGAGG</td>
+        <td>+</td>
+        <td>434</td>
+        <td>456</td>
+        <td>0.82</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TTAATACCTTAAATGTGGTG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>143</th>
+        <td>AAACCAAATTATAAGTTGCANGG</td>
+        <td>AAACCAAATTATAAGTTGCATGG</td>
+        <td>+</td>
+        <td>474</td>
+        <td>496</td>
+        <td>0.81</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("AAACCAAATTATAAGTTGCA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>144</th>
+        <td>ATTTAAGGTATTAATTTGAANGG</td>
+        <td>ATTTAAGGTATTAATTTGAATGG</td>
+        <td>-</td>
+        <td>425</td>
+        <td>447</td>
+        <td>0.80</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("ATTTAAGGTATTAATTTGAA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>145</th>
+        <td>TAATTTGAATGGTATTGATTNGG</td>
+        <td>TAATTTGAATGGTATTGATTGGG</td>
+        <td>-</td>
+        <td>414</td>
+        <td>436</td>
+        <td>0.80</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TAATTTGAATGGTATTGATT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>146</th>
+        <td>TTTTCTTTGTGGTTTTGAGTNGG</td>
+        <td>TTTTCTTTGTGGTTTTGAGTTGG</td>
+        <td>+</td>
+        <td>106</td>
+        <td>128</td>
+        <td>0.79</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TTTTCTTTGTGGTTTTGAGT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>147</th>
+        <td>AACTAGATTTATTCCTTTTANGG</td>
+        <td>AACTAGATTTATTCCTTTTAAGG</td>
+        <td>+</td>
+        <td>541</td>
+        <td>563</td>
+        <td>0.78</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("AACTAGATTTATTCCTTTTA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>148</th>
+        <td>TTAATTTGAATGGTATTGATNGG</td>
+        <td>TTAATTTGAATGGTATTGATTGG</td>
+        <td>-</td>
+        <td>415</td>
+        <td>437</td>
+        <td>0.78</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TTAATTTGAATGGTATTGAT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>149</th>
+        <td>GCTGGGGAACGTGCTACTCANGG</td>
+        <td>GCTGGGGAACGTGCTACTCAGAG</td>
+        <td>+</td>
+        <td>597</td>
+        <td>619</td>
+        <td>0.75</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GCTGGGGAACGTGCTACTCA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>150</th>
+        <td>TGGGCCCCCTCTACCAGGATNGG</td>
+        <td>TGGGCCCCCTCTACCAGGATAAG</td>
+        <td>-</td>
+        <td>909</td>
+        <td>931</td>
+        <td>0.75</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TGGGCCCCCTCTACCAGGAT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>151</th>
+        <td>GAAAAGCCCAGCTCCAAAGTNGG</td>
+        <td>GAAAAGCCCAGCTCCAAAGTCAG</td>
+        <td>-</td>
+        <td>713</td>
+        <td>735</td>
+        <td>0.74</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GAAAAGCCCAGCTCCAAAGT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>152</th>
+        <td>CTGGGCAGTAGCACAAACCANGG</td>
+        <td>CTGGGCAGTAGCACAAACCAAAG</td>
+        <td>-</td>
+        <td>280</td>
+        <td>302</td>
+        <td>0.74</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CTGGGCAGTAGCACAAACCA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>153</th>
+        <td>TTGCAGCCAGGTAGAAATAGNGG</td>
+        <td>TTGCAGCCAGGTAGAAATAGTAG</td>
+        <td>+</td>
+        <td>257</td>
+        <td>279</td>
+        <td>0.74</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TTGCAGCCAGGTAGAAATAG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>154</th>
+        <td>AGGGCTGCAGCAAAAGGAAANGG</td>
+        <td>AGGGCTGCAGCAAAAGGAAAAAG</td>
+        <td>-</td>
+        <td>355</td>
+        <td>377</td>
+        <td>0.74</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("AGGGCTGCAGCAAAAGGAAA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>155</th>
+        <td>TAGTGGTGTGGACCTCAGACNGG</td>
+        <td>TAGTGGTGTGGACCTCAGACAAG</td>
+        <td>-</td>
+        <td>631</td>
+        <td>653</td>
+        <td>0.74</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TAGTGGTGTGGACCTCAGAC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>156</th>
+        <td>AAGAACCTCACTTTCAGAAGNGG</td>
+        <td>AAGAACCTCACTTTCAGAAGAAG</td>
+        <td>+</td>
+        <td>37</td>
+        <td>59</td>
+        <td>0.73</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("AAGAACCTCACTTTCAGAAG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>157</th>
+        <td>ATATGGCATGTGGCTTATCANGG</td>
+        <td>ATATGGCATGTGGCTTATCATAG</td>
+        <td>+</td>
+        <td>225</td>
+        <td>247</td>
+        <td>0.73</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("ATATGGCATGTGGCTTATCA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>158</th>
+        <td>CGGAGCCAGGTCCTAGGGATNGG</td>
+        <td>CGGAGCCAGGTCCTAGGGATCAG</td>
+        <td>-</td>
+        <td>312</td>
+        <td>334</td>
+        <td>0.73</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CGGAGCCAGGTCCTAGGGAT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>159</th>
+        <td>GGCTCCCAGGGCTGCAGCAANGG</td>
+        <td>GGCTCCCAGGGCTGCAGCAAAAG</td>
+        <td>-</td>
+        <td>362</td>
+        <td>384</td>
+        <td>0.73</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GGCTCCCAGGGCTGCAGCAA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>160</th>
+        <td>AATAAGAGTAAGGACGGACANGG</td>
+        <td>AATAAGAGTAAGGACGGACATAG</td>
+        <td>-</td>
+        <td>850</td>
+        <td>872</td>
+        <td>0.73</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("AATAAGAGTAAGGACGGACA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>161</th>
+        <td>ACACAGTCCTGTGTCCATAANGG</td>
+        <td>ACACAGTCCTGTGTCCATAAGAG</td>
+        <td>-</td>
+        <td>195</td>
+        <td>217</td>
+        <td>0.73</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("ACACAGTCCTGTGTCCATAA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>162</th>
+        <td>ACACTGTAGCAAAGGAATAANGG</td>
+        <td>ACACTGTAGCAAAGGAATAAGAG</td>
+        <td>-</td>
+        <td>865</td>
+        <td>887</td>
+        <td>0.73</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("ACACTGTAGCAAAGGAATAA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>163</th>
+        <td>AGTCCTGTGTCCATAAGAGCNGG</td>
+        <td>AGTCCTGTGTCCATAAGAGCCAG</td>
+        <td>-</td>
+        <td>191</td>
+        <td>213</td>
+        <td>0.73</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("AGTCCTGTGTCCATAAGAGC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>164</th>
+        <td>GCCCCCTCTACCAGGATAAGNGG</td>
+        <td>GCCCCCTCTACCAGGATAAGAAG</td>
+        <td>-</td>
+        <td>906</td>
+        <td>928</td>
+        <td>0.72</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GCCCCCTCTACCAGGATAAG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>165</th>
+        <td>TCAGTTAGTGATCAGCATGANGG</td>
+        <td>TCAGTTAGTGATCAGCATGATAG</td>
+        <td>-</td>
+        <td>506</td>
+        <td>528</td>
+        <td>0.72</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TCAGTTAGTGATCAGCATGA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>166</th>
+        <td>CCCCCGCTGCTGAAAAACCCNGG</td>
+        <td>CCCCCGCTGCTGAAAAACCCAAG</td>
+        <td>-</td>
+        <td>72</td>
+        <td>94</td>
+        <td>0.72</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CCCCCGCTGCTGAAAAACCC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>167</th>
+        <td>ATGTGGCTTATCATAGAGGGNGG</td>
+        <td>ATGTGGCTTATCATAGAGGGCAG</td>
+        <td>+</td>
+        <td>232</td>
+        <td>254</td>
+        <td>0.72</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("ATGTGGCTTATCATAGAGGG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>168</th>
+        <td>CAGGGAGAAAGGCAAGGAAGNGG</td>
+        <td>CAGGGAGAAAGGCAAGGAAGGAG</td>
+        <td>-</td>
+        <td>788</td>
+        <td>810</td>
+        <td>0.72</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CAGGGAGAAAGGCAAGGAAG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>169</th>
+        <td>AATGACACCACTGAAAAGCCNGG</td>
+        <td>AATGACACCACTGAAAAGCCCAG</td>
+        <td>-</td>
+        <td>725</td>
+        <td>747</td>
+        <td>0.72</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("AATGACACCACTGAAAAGCC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>170</th>
+        <td>CACTGAAAAGCCCAGCTCCANGG</td>
+        <td>CACTGAAAAGCCCAGCTCCAAAG</td>
+        <td>-</td>
+        <td>717</td>
+        <td>739</td>
+        <td>0.72</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CACTGAAAAGCCCAGCTCCA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>171</th>
+        <td>CGGGAGGCAGGGAGAAAGGCNGG</td>
+        <td>CGGGAGGCAGGGAGAAAGGCAAG</td>
+        <td>-</td>
+        <td>795</td>
+        <td>817</td>
+        <td>0.72</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CGGGAGGCAGGGAGAAAGGC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>172</th>
+        <td>GCAAATCTGCCCTCTATGATNGG</td>
+        <td>GCAAATCTGCCCTCTATGATAAG</td>
+        <td>-</td>
+        <td>238</td>
+        <td>260</td>
+        <td>0.72</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GCAAATCTGCCCTCTATGAT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>173</th>
+        <td>GATTTGCAGCCAGGTAGAAANGG</td>
+        <td>GATTTGCAGCCAGGTAGAAATAG</td>
+        <td>+</td>
+        <td>254</td>
+        <td>276</td>
+        <td>0.72</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GATTTGCAGCCAGGTAGAAA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>174</th>
+        <td>CTGTGGAAGAACCTCACTTTNGG</td>
+        <td>CTGTGGAAGAACCTCACTTTCAG</td>
+        <td>+</td>
+        <td>31</td>
+        <td>53</td>
+        <td>0.72</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CTGTGGAAGAACCTCACTTT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>175</th>
+        <td>GGAGCCACCTGGCTCTCCAANGG</td>
+        <td>GGAGCCACCTGGCTCTCCAAAAG</td>
+        <td>+</td>
+        <td>379</td>
+        <td>401</td>
+        <td>0.72</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GGAGCCACCTGGCTCTCCAA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>176</th>
+        <td>TCACACTGTAGCAAAGGAATNGG</td>
+        <td>TCACACTGTAGCAAAGGAATAAG</td>
+        <td>-</td>
+        <td>867</td>
+        <td>889</td>
+        <td>0.72</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TCACACTGTAGCAAAGGAAT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>177</th>
+        <td>GAGAAAGGCAAGGAAGGAGTNGG</td>
+        <td>GAGAAAGGCAAGGAAGGAGTCAG</td>
+        <td>-</td>
+        <td>784</td>
+        <td>806</td>
+        <td>0.72</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GAGAAAGGCAAGGAAGGAGT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>178</th>
+        <td>CCCTGGATCACACTGTAGCANGG</td>
+        <td>CCCTGGATCACACTGTAGCAAAG</td>
+        <td>-</td>
+        <td>874</td>
+        <td>896</td>
+        <td>0.72</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CCCTGGATCACACTGTAGCA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>179</th>
+        <td>AGCATGTGGGGGTTCAAATCNGG</td>
+        <td>AGCATGTGGGGGTTCAAATCCAG</td>
+        <td>+</td>
+        <td>685</td>
+        <td>707</td>
+        <td>0.72</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("AGCATGTGGGGGTTCAAATC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>180</th>
+        <td>CAGGTATGTGGTCCGGATATNGG</td>
+        <td>CAGGTATGTGGTCCGGATATGAG</td>
+        <td>+</td>
+        <td>664</td>
+        <td>686</td>
+        <td>0.71</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CAGGTATGTGGTCCGGATAT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>181</th>
+        <td>CAATATTCTCAGATGGAGAANGG</td>
+        <td>CAATATTCTCAGATGGAGAATAG</td>
+        <td>-</td>
+        <td>755</td>
+        <td>777</td>
+        <td>0.71</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CAATATTCTCAGATGGAGAA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>182</th>
+        <td>CACACCACTAACAAGGAGCANGG</td>
+        <td>CACACCACTAACAAGGAGCACAG</td>
+        <td>+</td>
+        <td>644</td>
+        <td>666</td>
+        <td>0.71</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CACACCACTAACAAGGAGCA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>183</th>
+        <td>ACATAGAGGACTGGAACACCNGG</td>
+        <td>ACATAGAGGACTGGAACACCAAG</td>
+        <td>-</td>
+        <td>833</td>
+        <td>855</td>
+        <td>0.71</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("ACATAGAGGACTGGAACACC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>184</th>
+        <td>GAGGAGGGAGGGAGGGAAGGNGG</td>
+        <td>GAGGAGGGAGGGAGGGAAGGAAG</td>
+        <td>+</td>
+        <td>135</td>
+        <td>157</td>
+        <td>0.71</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GAGGAGGGAGGGAGGGAAGG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>185</th>
+        <td>TAGCTGGGGAACGTGCTACTNGG</td>
+        <td>TAGCTGGGGAACGTGCTACTCAG</td>
+        <td>+</td>
+        <td>595</td>
+        <td>617</td>
+        <td>0.71</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TAGCTGGGGAACGTGCTACT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>186</th>
+        <td>AAACCACAAAGAAAAAATGANGG</td>
+        <td>AAACCACAAAGAAAAAATGAGAG</td>
+        <td>-</td>
+        <td>98</td>
+        <td>120</td>
+        <td>0.71</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("AAACCACAAAGAAAAAATGA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>187</th>
+        <td>CTTGTTAGTGGTGTGGACCTNGG</td>
+        <td>CTTGTTAGTGGTGTGGACCTCAG</td>
+        <td>-</td>
+        <td>636</td>
+        <td>658</td>
+        <td>0.71</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CTTGTTAGTGGTGTGGACCT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>188</th>
+        <td>ACCAGGATAAGAAGGGGCAGNGG</td>
+        <td>ACCAGGATAAGAAGGGGCAGGAG</td>
+        <td>-</td>
+        <td>897</td>
+        <td>919</td>
+        <td>0.71</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("ACCAGGATAAGAAGGGGCAG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>189</th>
+        <td>CAGAACTCATGCCTGGGCAGNGG</td>
+        <td>CAGAACTCATGCCTGGGCAGTAG</td>
+        <td>-</td>
+        <td>292</td>
+        <td>314</td>
+        <td>0.71</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CAGAACTCATGCCTGGGCAG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>190</th>
+        <td>GCTACAACATGTGGAAATAANGG</td>
+        <td>GCTACAACATGTGGAAATAACAG</td>
+        <td>-</td>
+        <td>576</td>
+        <td>598</td>
+        <td>0.71</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GCTACAACATGTGGAAATAA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>191</th>
+        <td>TAAGAGTAAGGACGGACATANGG</td>
+        <td>TAAGAGTAAGGACGGACATAGAG</td>
+        <td>-</td>
+        <td>848</td>
+        <td>870</td>
+        <td>0.71</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TAAGAGTAAGGACGGACATA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>192</th>
+        <td>AGGTCCACACCACTAACAAGNGG</td>
+        <td>AGGTCCACACCACTAACAAGGAG</td>
+        <td>+</td>
+        <td>639</td>
+        <td>661</td>
+        <td>0.71</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("AGGTCCACACCACTAACAAG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>193</th>
+        <td>TCCTTTTGCTGCAGCCCTGGNGG</td>
+        <td>TCCTTTTGCTGCAGCCCTGGGAG</td>
+        <td>+</td>
+        <td>360</td>
+        <td>382</td>
+        <td>0.71</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TCCTTTTGCTGCAGCCCTGG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>194</th>
+        <td>TTTTGAGTTGGGGATTGGAGNGG</td>
+        <td>TTTTGAGTTGGGGATTGGAGGAG</td>
+        <td>+</td>
+        <td>118</td>
+        <td>140</td>
+        <td>0.70</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TTTTGAGTTGGGGATTGGAG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>195</th>
+        <td>GATCAGAACTCATGCCTGGGNGG</td>
+        <td>GATCAGAACTCATGCCTGGGCAG</td>
+        <td>-</td>
+        <td>295</td>
+        <td>317</td>
+        <td>0.70</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GATCAGAACTCATGCCTGGG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>196</th>
+        <td>CAAAACCACAAAGAAAAAATNGG</td>
+        <td>CAAAACCACAAAGAAAAAATGAG</td>
+        <td>-</td>
+        <td>100</td>
+        <td>122</td>
+        <td>0.70</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CAAAACCACAAAGAAAAAAT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>197</th>
+        <td>TTGTGCTACTGCCCAGGCATNGG</td>
+        <td>TTGTGCTACTGCCCAGGCATGAG</td>
+        <td>+</td>
+        <td>287</td>
+        <td>309</td>
+        <td>0.70</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TTGTGCTACTGCCCAGGCAT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>198</th>
+        <td>TATCATAGAGGGCAGATTTGNGG</td>
+        <td>TATCATAGAGGGCAGATTTGCAG</td>
+        <td>+</td>
+        <td>240</td>
+        <td>262</td>
+        <td>0.70</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TATCATAGAGGGCAGATTTG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>199</th>
+        <td>GAATCTGGCTCTTATGGACANGG</td>
+        <td>GAATCTGGCTCTTATGGACACAG</td>
+        <td>+</td>
+        <td>187</td>
+        <td>209</td>
+        <td>0.70</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GAATCTGGCTCTTATGGACA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>200</th>
+        <td>AAAGTGAGGTTCTTCCACAGNGG</td>
+        <td>AAAGTGAGGTTCTTCCACAGCAG</td>
+        <td>-</td>
+        <td>28</td>
+        <td>50</td>
+        <td>0.70</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("AAAGTGAGGTTCTTCCACAG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>201</th>
+        <td>ATTTGGTTTCAGTTGAACAANGG</td>
+        <td>ATTTGGTTTCAGTTGAACAACAG</td>
+        <td>-</td>
+        <td>460</td>
+        <td>482</td>
+        <td>0.70</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("ATTTGGTTTCAGTTGAACAA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>202</th>
+        <td>CCACACAGTCCTGTGTCCATNGG</td>
+        <td>CCACACAGTCCTGTGTCCATAAG</td>
+        <td>-</td>
+        <td>197</td>
+        <td>219</td>
+        <td>0.70</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CCACACAGTCCTGTGTCCAT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>203</th>
+        <td>AGTTACTTAACCTCTCTGAGNGG</td>
+        <td>AGTTACTTAACCTCTCTGAGTAG</td>
+        <td>-</td>
+        <td>610</td>
+        <td>632</td>
+        <td>0.70</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("AGTTACTTAACCTCTCTGAG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>204</th>
+        <td>TTGGAGAGCCAGGTGGCTCCNGG</td>
+        <td>TTGGAGAGCCAGGTGGCTCCCAG</td>
+        <td>-</td>
+        <td>376</td>
+        <td>398</td>
+        <td>0.70</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TTGGAGAGCCAGGTGGCTCC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>205</th>
+        <td>ACGTGCTACTCAGAGAGGTTNGG</td>
+        <td>ACGTGCTACTCAGAGAGGTTAAG</td>
+        <td>+</td>
+        <td>605</td>
+        <td>627</td>
+        <td>0.70</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("ACGTGCTACTCAGAGAGGTT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>206</th>
+        <td>CCTGCCCCTTCTTATCCTGGNGG</td>
+        <td>CCTGCCCCTTCTTATCCTGGTAG</td>
+        <td>+</td>
+        <td>899</td>
+        <td>921</td>
+        <td>0.70</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CCTGCCCCTTCTTATCCTGG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>207</th>
+        <td>TCTACCAGGATAAGAAGGGGNGG</td>
+        <td>TCTACCAGGATAAGAAGGGGCAG</td>
+        <td>-</td>
+        <td>900</td>
+        <td>922</td>
+        <td>0.70</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TCTACCAGGATAAGAAGGGG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>208</th>
+        <td>GGCGATTCGGAGCCAGGTCCNGG</td>
+        <td>GGCGATTCGGAGCCAGGTCCTAG</td>
+        <td>-</td>
+        <td>319</td>
+        <td>341</td>
+        <td>0.70</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GGCGATTCGGAGCCAGGTCC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>209</th>
+        <td>TTCTTCCACAGCAGCAACCTNGG</td>
+        <td>TTCTTCCACAGCAGCAACCTCAG</td>
+        <td>-</td>
+        <td>19</td>
+        <td>41</td>
+        <td>0.70</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TTCTTCCACAGCAGCAACCT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>210</th>
+        <td>AGGCAGGGAGAAAGGCAAGGNGG</td>
+        <td>AGGCAGGGAGAAAGGCAAGGAAG</td>
+        <td>-</td>
+        <td>791</td>
+        <td>813</td>
+        <td>0.70</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("AGGCAGGGAGAAAGGCAAGG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>211</th>
+        <td>ATTGGAGGAGGGAGGGAGGGNGG</td>
+        <td>ATTGGAGGAGGGAGGGAGGGAAG</td>
+        <td>+</td>
+        <td>131</td>
+        <td>153</td>
+        <td>0.70</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("ATTGGAGGAGGGAGGGAGGG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>212</th>
+        <td>TGGAAGAACCTCACTTTCAGNGG</td>
+        <td>TGGAAGAACCTCACTTTCAGAAG</td>
+        <td>+</td>
+        <td>34</td>
+        <td>56</td>
+        <td>0.70</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TGGAAGAACCTCACTTTCAG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>213</th>
+        <td>ATCCAGATAATCTGACTTTGNGG</td>
+        <td>ATCCAGATAATCTGACTTTGGAG</td>
+        <td>+</td>
+        <td>702</td>
+        <td>724</td>
+        <td>0.70</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("ATCCAGATAATCTGACTTTG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>214</th>
+        <td>GGCGGAGACAATTTCCCAGCNGG</td>
+        <td>GGCGGAGACAATTTCCCAGCAAG</td>
+        <td>-</td>
+        <td>932</td>
+        <td>954</td>
+        <td>0.70</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GGCGGAGACAATTTCCCAGC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>215</th>
+        <td>GGGTGCTCAGGGGCGATTCGNGG</td>
+        <td>GGGTGCTCAGGGGCGATTCGGAG</td>
+        <td>-</td>
+        <td>330</td>
+        <td>352</td>
+        <td>0.70</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GGGTGCTCAGGGGCGATTCG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>216</th>
+        <td>CTGAGGTCCACACCACTAACNGG</td>
+        <td>CTGAGGTCCACACCACTAACAAG</td>
+        <td>+</td>
+        <td>636</td>
+        <td>658</td>
+        <td>0.70</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CTGAGGTCCACACCACTAAC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>217</th>
+        <td>TGTAGCAAAGGAATAAGAGTNGG</td>
+        <td>TGTAGCAAAGGAATAAGAGTAAG</td>
+        <td>-</td>
+        <td>861</td>
+        <td>883</td>
+        <td>0.70</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TGTAGCAAAGGAATAAGAGT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>218</th>
+        <td>GTCAGAAACTTCAATATTCTNGG</td>
+        <td>GTCAGAAACTTCAATATTCTCAG</td>
+        <td>-</td>
+        <td>766</td>
+        <td>788</td>
+        <td>0.70</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GTCAGAAACTTCAATATTCT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>219</th>
+        <td>CCACAGCAGCAACCTCAGCTNGG</td>
+        <td>CCACAGCAGCAACCTCAGCTGAG</td>
+        <td>-</td>
+        <td>14</td>
+        <td>36</td>
+        <td>0.70</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CCACAGCAGCAACCTCAGCT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>220</th>
+        <td>AGTACATCGCGGGGCCTTAANGG</td>
+        <td>AGTACATCGCGGGGCCTTAAAAG</td>
+        <td>-</td>
+        <td>555</td>
+        <td>577</td>
+        <td>0.70</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("AGTACATCGCGGGGCCTTAA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>221</th>
+        <td>CAGGCATGAGTTCTGATCCCNGG</td>
+        <td>CAGGCATGAGTTCTGATCCCTAG</td>
+        <td>+</td>
+        <td>300</td>
+        <td>322</td>
+        <td>0.70</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CAGGCATGAGTTCTGATCCC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>222</th>
+        <td>AGGGCAGATTTGCAGCCAGGNGG</td>
+        <td>AGGGCAGATTTGCAGCCAGGTAG</td>
+        <td>+</td>
+        <td>248</td>
+        <td>270</td>
+        <td>0.70</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("AGGGCAGATTTGCAGCCAGG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>223</th>
+        <td>GACTTTGGAGCTGGGCTTTTNGG</td>
+        <td>GACTTTGGAGCTGGGCTTTTCAG</td>
+        <td>+</td>
+        <td>715</td>
+        <td>737</td>
+        <td>0.70</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GACTTTGGAGCTGGGCTTTT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>224</th>
+        <td>TGGGGATTGGAGGAGGGAGGNGG</td>
+        <td>TGGGGATTGGAGGAGGGAGGGAG</td>
+        <td>+</td>
+        <td>126</td>
+        <td>148</td>
+        <td>0.70</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TGGGGATTGGAGGAGGGAGG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>225</th>
+        <td>CAACCTCAGCTGAGGCCAACNGG</td>
+        <td>CAACCTCAGCTGAGGCCAACAAG</td>
+        <td>-</td>
+        <td>5</td>
+        <td>27</td>
+        <td>0.70</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CAACCTCAGCTGAGGCCAAC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>226</th>
+        <td>GGGCCCATTAGGGGCTTTTGNGG</td>
+        <td>GGGCCCATTAGGGGCTTTTGGAG</td>
+        <td>-</td>
+        <td>393</td>
+        <td>415</td>
+        <td>0.70</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GGGCCCATTAGGGGCTTTTG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>227</th>
+        <td>CATGCTGATCACTAACTGATNGG</td>
+        <td>CATGCTGATCACTAACTGATTAG</td>
+        <td>+</td>
+        <td>510</td>
+        <td>532</td>
+        <td>0.69</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CATGCTGATCACTAACTGAT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>228</th>
+        <td>GGATAACCACGGGAGGCAGGNGG</td>
+        <td>GGATAACCACGGGAGGCAGGGAG</td>
+        <td>-</td>
+        <td>804</td>
+        <td>826</td>
+        <td>0.69</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GGATAACCACGGGAGGCAGG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>229</th>
+        <td>GCCCATTAGGGGCTTTTGGANGG</td>
+        <td>GCCCATTAGGGGCTTTTGGAGAG</td>
+        <td>-</td>
+        <td>391</td>
+        <td>413</td>
+        <td>0.69</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GCCCATTAGGGGCTTTTGGA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>230</th>
+        <td>ATTAGGGGCTTTTGGAGAGCNGG</td>
+        <td>ATTAGGGGCTTTTGGAGAGCCAG</td>
+        <td>-</td>
+        <td>387</td>
+        <td>409</td>
+        <td>0.69</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("ATTAGGGGCTTTTGGAGAGC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>231</th>
+        <td>AACCACGGGAGGCAGGGAGANGG</td>
+        <td>AACCACGGGAGGCAGGGAGAAAG</td>
+        <td>-</td>
+        <td>800</td>
+        <td>822</td>
+        <td>0.69</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("AACCACGGGAGGCAGGGAGA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>232</th>
+        <td>AGCTGAGGTTGCTGCTGTGGNGG</td>
+        <td>AGCTGAGGTTGCTGCTGTGGAAG</td>
+        <td>+</td>
+        <td>17</td>
+        <td>39</td>
+        <td>0.69</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("AGCTGAGGTTGCTGCTGTGG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>233</th>
+        <td>TGGTATTGATTGGGGCCCATNGG</td>
+        <td>TGGTATTGATTGGGGCCCATTAG</td>
+        <td>-</td>
+        <td>405</td>
+        <td>427</td>
+        <td>0.69</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TGGTATTGATTGGGGCCCAT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>234</th>
+        <td>GAGTTGGGGATTGGAGGAGGNGG</td>
+        <td>GAGTTGGGGATTGGAGGAGGGAG</td>
+        <td>+</td>
+        <td>122</td>
+        <td>144</td>
+        <td>0.69</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GAGTTGGGGATTGGAGGAGG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>235</th>
+        <td>TTCAGAAGAAGACAAACAGTNGG</td>
+        <td>TTCAGAAGAAGACAAACAGTAAG</td>
+        <td>+</td>
+        <td>49</td>
+        <td>71</td>
+        <td>0.69</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TTCAGAAGAAGACAAACAGT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>236</th>
+        <td>ATGCCTAATCAGTTAGTGATNGG</td>
+        <td>ATGCCTAATCAGTTAGTGATCAG</td>
+        <td>-</td>
+        <td>514</td>
+        <td>536</td>
+        <td>0.69</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("ATGCCTAATCAGTTAGTGAT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>237</th>
+        <td>CTGCCTCCCGTGGTTATCCCNGG</td>
+        <td>CTGCCTCCCGTGGTTATCCCCAG</td>
+        <td>+</td>
+        <td>808</td>
+        <td>830</td>
+        <td>0.69</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CTGCCTCCCGTGGTTATCCC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>238</th>
+        <td>GGCCTTAAAAGGAATAAATCNGG</td>
+        <td>GGCCTTAAAAGGAATAAATCTAG</td>
+        <td>-</td>
+        <td>543</td>
+        <td>565</td>
+        <td>0.69</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GGCCTTAAAAGGAATAAATC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>239</th>
+        <td>CACATACCTGTGCTCCTTGTNGG</td>
+        <td>CACATACCTGTGCTCCTTGTTAG</td>
+        <td>-</td>
+        <td>651</td>
+        <td>673</td>
+        <td>0.69</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CACATACCTGTGCTCCTTGT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>240</th>
+        <td>AGGAGCCCTGGATCACACTGNGG</td>
+        <td>AGGAGCCCTGGATCACACTGTAG</td>
+        <td>-</td>
+        <td>879</td>
+        <td>901</td>
+        <td>0.69</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("AGGAGCCCTGGATCACACTG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>241</th>
+        <td>AAAATAATGACACCACTGAANGG</td>
+        <td>AAAATAATGACACCACTGAAAAG</td>
+        <td>-</td>
+        <td>730</td>
+        <td>752</td>
+        <td>0.69</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("AAAATAATGACACCACTGAA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>242</th>
+        <td>AACTTCAATATTCTCAGATGNGG</td>
+        <td>AACTTCAATATTCTCAGATGGAG</td>
+        <td>-</td>
+        <td>760</td>
+        <td>782</td>
+        <td>0.69</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("AACTTCAATATTCTCAGATG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>243</th>
+        <td>AACATGGATAAACCATGGCGNGG</td>
+        <td>AACATGGATAAACCATGGCGGAG</td>
+        <td>-</td>
+        <td>948</td>
+        <td>970</td>
+        <td>0.69</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("AACATGGATAAACCATGGCG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>244</th>
+        <td>AAAGGAAAAAGTGGGGTGCTNGG</td>
+        <td>AAAGGAAAAAGTGGGGTGCTCAG</td>
+        <td>-</td>
+        <td>343</td>
+        <td>365</td>
+        <td>0.69</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("AAAGGAAAAAGTGGGGTGCT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>245</th>
+        <td>ATTTTGCCTATTCTCCATCTNGG</td>
+        <td>ATTTTGCCTATTCTCCATCTGAG</td>
+        <td>+</td>
+        <td>748</td>
+        <td>770</td>
+        <td>0.69</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("ATTTTGCCTATTCTCCATCT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>246</th>
+        <td>TTCAACTGAAACCAAATTATNGG</td>
+        <td>TTCAACTGAAACCAAATTATAAG</td>
+        <td>+</td>
+        <td>466</td>
+        <td>488</td>
+        <td>0.69</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TTCAACTGAAACCAAATTAT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>247</th>
+        <td>TCCCTGTGTGAAAACCAACANGG</td>
+        <td>TCCCTGTGTGAAAACCAACACAG</td>
+        <td>-</td>
+        <td>158</td>
+        <td>180</td>
+        <td>0.69</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TCCCTGTGTGAAAACCAACA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>248</th>
+        <td>ACAGCTGCCTCACCACATTTNGG</td>
+        <td>ACAGCTGCCTCACCACATTTAAG</td>
+        <td>-</td>
+        <td>441</td>
+        <td>463</td>
+        <td>0.69</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("ACAGCTGCCTCACCACATTT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>249</th>
+        <td>AGCAAGTGGGCCCCCTCTACNGG</td>
+        <td>AGCAAGTGGGCCCCCTCTACCAG</td>
+        <td>-</td>
+        <td>915</td>
+        <td>937</td>
+        <td>0.69</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("AGCAAGTGGGCCCCCTCTAC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>250</th>
+        <td>AGACCTGGGGATAACCACGGNGG</td>
+        <td>AGACCTGGGGATAACCACGGGAG</td>
+        <td>-</td>
+        <td>812</td>
+        <td>834</td>
+        <td>0.69</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("AGACCTGGGGATAACCACGG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>251</th>
+        <td>CTTTGGTTTGTGCTACTGCCNGG</td>
+        <td>CTTTGGTTTGTGCTACTGCCCAG</td>
+        <td>+</td>
+        <td>280</td>
+        <td>302</td>
+        <td>0.68</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CTTTGGTTTGTGCTACTGCC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>252</th>
+        <td>GTTTGTCTTCTTCTGAAAGTNGG</td>
+        <td>GTTTGTCTTCTTCTGAAAGTGAG</td>
+        <td>-</td>
+        <td>43</td>
+        <td>65</td>
+        <td>0.68</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GTTTGTCTTCTTCTGAAAGT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>253</th>
+        <td>AGAGGTTAAGTAACTTGTCTNGG</td>
+        <td>AGAGGTTAAGTAACTTGTCTGAG</td>
+        <td>+</td>
+        <td>618</td>
+        <td>640</td>
+        <td>0.68</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("AGAGGTTAAGTAACTTGTCT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>254</th>
+        <td>CTGAAAGTGAGGTTCTTCCANGG</td>
+        <td>CTGAAAGTGAGGTTCTTCCACAG</td>
+        <td>-</td>
+        <td>31</td>
+        <td>53</td>
+        <td>0.68</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CTGAAAGTGAGGTTCTTCCA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>255</th>
+        <td>TTCTCCATCTGAGAATATTGNGG</td>
+        <td>TTCTCCATCTGAGAATATTGAAG</td>
+        <td>+</td>
+        <td>758</td>
+        <td>780</td>
+        <td>0.68</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TTCTCCATCTGAGAATATTG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>256</th>
+        <td>CATGCCATATCCGGACCACANGG</td>
+        <td>CATGCCATATCCGGACCACACAG</td>
+        <td>-</td>
+        <td>212</td>
+        <td>234</td>
+        <td>0.68</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CATGCCATATCCGGACCACA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>257</th>
+        <td>TGGGGAACGTGCTACTCAGANGG</td>
+        <td>TGGGGAACGTGCTACTCAGAGAG</td>
+        <td>+</td>
+        <td>599</td>
+        <td>621</td>
+        <td>0.68</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TGGGGAACGTGCTACTCAGA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>258</th>
+        <td>CACTTTCAGAAGAAGACAAANGG</td>
+        <td>CACTTTCAGAAGAAGACAAACAG</td>
+        <td>+</td>
+        <td>45</td>
+        <td>67</td>
+        <td>0.68</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CACTTTCAGAAGAAGACAAA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>259</th>
+        <td>TGGTTTTGAGTTGGGGATTGNGG</td>
+        <td>TGGTTTTGAGTTGGGGATTGGAG</td>
+        <td>+</td>
+        <td>115</td>
+        <td>137</td>
+        <td>0.68</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TGGTTTTGAGTTGGGGATTG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>260</th>
+        <td>CCTGGCTCCGAATCGCCCCTNGG</td>
+        <td>CCTGGCTCCGAATCGCCCCTGAG</td>
+        <td>+</td>
+        <td>325</td>
+        <td>347</td>
+        <td>0.68</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CCTGGCTCCGAATCGCCCCT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>261</th>
+        <td>ATCCCCAACTCAAAACCACANGG</td>
+        <td>ATCCCCAACTCAAAACCACAAAG</td>
+        <td>-</td>
+        <td>110</td>
+        <td>132</td>
+        <td>0.68</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("ATCCCCAACTCAAAACCACA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>262</th>
+        <td>ATGGCATGTGGCTTATCATANGG</td>
+        <td>ATGGCATGTGGCTTATCATAGAG</td>
+        <td>+</td>
+        <td>227</td>
+        <td>249</td>
+        <td>0.68</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("ATGGCATGTGGCTTATCATA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>263</th>
+        <td>ATAGAGGGCAGATTTGCAGCNGG</td>
+        <td>ATAGAGGGCAGATTTGCAGCCAG</td>
+        <td>+</td>
+        <td>244</td>
+        <td>266</td>
+        <td>0.67</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("ATAGAGGGCAGATTTGCAGC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>264</th>
+        <td>TCCTTTGCTACAGTGTGATCNGG</td>
+        <td>TCCTTTGCTACAGTGTGATCCAG</td>
+        <td>+</td>
+        <td>872</td>
+        <td>894</td>
+        <td>0.67</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TCCTTTGCTACAGTGTGATC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>265</th>
+        <td>AGTAAGCTTGGGTTTTTCAGNGG</td>
+        <td>AGTAAGCTTGGGTTTTTCAGCAG</td>
+        <td>+</td>
+        <td>66</td>
+        <td>88</td>
+        <td>0.67</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("AGTAAGCTTGGGTTTTTCAG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>266</th>
+        <td>CTGGGGATAACCACGGGAGGNGG</td>
+        <td>CTGGGGATAACCACGGGAGGCAG</td>
+        <td>-</td>
+        <td>808</td>
+        <td>830</td>
+        <td>0.67</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CTGGGGATAACCACGGGAGG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>267</th>
+        <td>TGCCCCTTCTTATCCTGGTANGG</td>
+        <td>TGCCCCTTCTTATCCTGGTAGAG</td>
+        <td>+</td>
+        <td>901</td>
+        <td>923</td>
+        <td>0.67</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TGCCCCTTCTTATCCTGGTA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>268</th>
+        <td>GCTCAGGGGCGATTCGGAGCNGG</td>
+        <td>GCTCAGGGGCGATTCGGAGCCAG</td>
+        <td>-</td>
+        <td>326</td>
+        <td>348</td>
+        <td>0.67</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GCTCAGGGGCGATTCGGAGC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>269</th>
+        <td>TCTCTGAGTAGCACGTTCCCNGG</td>
+        <td>TCTCTGAGTAGCACGTTCCCCAG</td>
+        <td>-</td>
+        <td>598</td>
+        <td>620</td>
+        <td>0.67</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TCTCTGAGTAGCACGTTCCC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>270</th>
+        <td>CCATGGCGGAGACAATTTCCNGG</td>
+        <td>CCATGGCGGAGACAATTTCCCAG</td>
+        <td>-</td>
+        <td>936</td>
+        <td>958</td>
+        <td>0.67</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CCATGGCGGAGACAATTTCC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>271</th>
+        <td>ACAAGTTACTTAACCTCTCTNGG</td>
+        <td>ACAAGTTACTTAACCTCTCTGAG</td>
+        <td>-</td>
+        <td>613</td>
+        <td>635</td>
+        <td>0.67</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("ACAAGTTACTTAACCTCTCT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>272</th>
+        <td>CCAAATTATAAGTTGCATGGNGG</td>
+        <td>CCAAATTATAAGTTGCATGGCAG</td>
+        <td>+</td>
+        <td>477</td>
+        <td>499</td>
+        <td>0.67</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CCAAATTATAAGTTGCATGG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>273</th>
+        <td>ATACCTTAAATGTGGTGAGGNGG</td>
+        <td>ATACCTTAAATGTGGTGAGGCAG</td>
+        <td>+</td>
+        <td>437</td>
+        <td>459</td>
+        <td>0.67</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("ATACCTTAAATGTGGTGAGG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>274</th>
+        <td>ACTGATTAGGCATTATTAACNGG</td>
+        <td>ACTGATTAGGCATTATTAACTAG</td>
+        <td>+</td>
+        <td>524</td>
+        <td>546</td>
+        <td>0.66</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("ACTGATTAGGCATTATTAAC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>275</th>
+        <td>CCAGGTGGCTCCCAGGGCTGNGG</td>
+        <td>CCAGGTGGCTCCCAGGGCTGCAG</td>
+        <td>-</td>
+        <td>368</td>
+        <td>390</td>
+        <td>0.66</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CCAGGTGGCTCCCAGGGCTG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>276</th>
+        <td>TCTAGTTAATAATGCCTAATNGG</td>
+        <td>TCTAGTTAATAATGCCTAATCAG</td>
+        <td>-</td>
+        <td>525</td>
+        <td>547</td>
+        <td>0.66</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TCTAGTTAATAATGCCTAAT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>277</th>
+        <td>ATCCCCAGGTCTTGGTGTTCNGG</td>
+        <td>ATCCCCAGGTCTTGGTGTTCCAG</td>
+        <td>+</td>
+        <td>823</td>
+        <td>845</td>
+        <td>0.66</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("ATCCCCAGGTCTTGGTGTTC")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>278</th>
+        <td>TACTGTTTGTCTTCTTCTGANGG</td>
+        <td>TACTGTTTGTCTTCTTCTGAAAG</td>
+        <td>-</td>
+        <td>47</td>
+        <td>69</td>
+        <td>0.66</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TACTGTTTGTCTTCTTCTGA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>279</th>
+        <td>TTACTCTTATTCCTTTGCTANGG</td>
+        <td>TTACTCTTATTCCTTTGCTACAG</td>
+        <td>+</td>
+        <td>862</td>
+        <td>884</td>
+        <td>0.66</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TTACTCTTATTCCTTTGCTA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>280</th>
+        <td>AAGCTGTGTTGGTTTTCACANGG</td>
+        <td>AAGCTGTGTTGGTTTTCACACAG</td>
+        <td>+</td>
+        <td>155</td>
+        <td>177</td>
+        <td>0.66</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("AAGCTGTGTTGGTTTTCACA")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>281</th>
+        <td>ATTAATACCTTAAATGTGGTNGG</td>
+        <td>ATTAATACCTTAAATGTGGTGAG</td>
+        <td>+</td>
+        <td>433</td>
+        <td>455</td>
+        <td>0.65</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("ATTAATACCTTAAATGTGGT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>282</th>
+        <td>CCCACTTTTTCCTTTTGCTGNGG</td>
+        <td>CCCACTTTTTCCTTTTGCTGCAG</td>
+        <td>+</td>
+        <td>351</td>
+        <td>373</td>
+        <td>0.65</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CCCACTTTTTCCTTTTGCTG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>283</th>
+        <td>CATTTTTTCTTTGTGGTTTTNGG</td>
+        <td>CATTTTTTCTTTGTGGTTTTGAG</td>
+        <td>+</td>
+        <td>102</td>
+        <td>124</td>
+        <td>0.65</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CATTTTTTCTTTGTGGTTTT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>284</th>
+        <td>GTTAATAATGCCTAATCAGTNGG</td>
+        <td>GTTAATAATGCCTAATCAGTTAG</td>
+        <td>-</td>
+        <td>521</td>
+        <td>543</td>
+        <td>0.65</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("GTTAATAATGCCTAATCAGT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>285</th>
+        <td>TAACTAGATTTATTCCTTTTNGG</td>
+        <td>TAACTAGATTTATTCCTTTTAAG</td>
+        <td>+</td>
+        <td>540</td>
+        <td>562</td>
+        <td>0.64</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TAACTAGATTTATTCCTTTT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>286</th>
+        <td>TGCAACTTATAATTTGGTTTNGG</td>
+        <td>TGCAACTTATAATTTGGTTTCAG</td>
+        <td>-</td>
+        <td>471</td>
+        <td>493</td>
+        <td>0.64</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TGCAACTTATAATTTGGTTT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>287</th>
+        <td>AACAGTAAGCTTGGGTTTTTNGG</td>
+        <td>AACAGTAAGCTTGGGTTTTTCAG</td>
+        <td>+</td>
+        <td>63</td>
+        <td>85</td>
+        <td>0.64</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("AACAGTAAGCTTGGGTTTTT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>288</th>
+        <td>ACTGTTATTTCCACATGTTGNGG</td>
+        <td>ACTGTTATTTCCACATGTTGTAG</td>
+        <td>+</td>
+        <td>575</td>
+        <td>597</td>
+        <td>0.64</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("ACTGTTATTTCCACATGTTG")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>289</th>
+        <td>TATCCATGTTGTGTGTCCATNGG</td>
+        <td>TATCCATGTTGTGTGTCCATTAG</td>
+        <td>+</td>
+        <td>961</td>
+        <td>983</td>
+        <td>0.64</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("TATCCATGTTGTGTGTCCAT")'>find off-targets!</a></td>
+    </tr>
+    <tr>
+        <th>290</th>
+        <td>CATGTTGTGTGTCCATTAGTNGG</td>
+        <td>CATGTTGTGTGTCCATTAGTGAG</td>
+        <td>+</td>
+        <td>965</td>
+        <td>987</td>
+        <td>0.63</td>
+        <td><a href="#" onclick='javascript:send_sgrna_to_offtargets_form("CATGTTGTGTGTCCATTAGT")'>find off-targets!</a></td>
+    </tr>
+    </tbody>
+</table>
+</blockquote>
+</html>

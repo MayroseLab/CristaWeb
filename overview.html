@@ -1,0 +1,254 @@
+<html>
+
+<head>
+    <META NAME="date" CONTENT="2016-09-07">
+    <META NAME="author" CONTENT="Shiran Abadi, Itay Mayrose">
+    <META NAME="keywords"
+          CONTENT="CRISTA, CRISPR, CRISPR-Cas9, genome editing, off target detection, machine learning, off-targets">
+    <META NAME="description"
+          CONTENT="CRISTA is a machine learning based tool for scoring a potential genomic site by a given sgRNA with the CRISPR-Cas9 mechanism">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="crista.css"/>
+
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-28067120-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+    <script type="text/javascript">
+//------------------------------------
+// gets the element from various browsers
+function getElement(element_name){
+	var elem_to_return;
+	if( document.getElementById ) // this is the way the standards work    
+		elem_to_return = document.getElementById( element_name );  
+	else if( document.all ) // this is the way old msie versions work      
+		elem_to_return = document.all[element_name];  
+	else if( document.layers ) // this is the way nn4 works    
+		elem_to_return = document.layers[element_name]; 
+	return elem_to_return;
+}
+//------------------------------------
+//------------------------------------
+function show_div_name(div_id){
+        var show = getElement( div_id );
+        show.style.display = 'block';
+}
+//------------------------------------
+function hide_div_name(div_id){
+        var show = getElement( div_id );
+        show.style.display = 'none';
+}
+//------------------------------------
+function LoadExample(){
+			   form = document.crista_form
+			   form.reset();
+			   form.genomicSeq.value="GTTTCTCATCTGTGCCCCTCCCTCCCTGGCCCAGGTGAAGGTGTGGTTCCAGAACCGGAGGACAAAGTACAAACGGCAGAAGCTGGAGGAGGAAGGGCCTGAGTCCGAGCAGAAGAAGAAGGGCTCCCATCACATCAACCGGTGGCGCATTGCCACGAAGCAGGCCAATGGGGAGGACATCGATGTCACCTCCAATGACTAGGGTGGGCAACCACAAACCCAC";
+			   form.sgRNA_seq.value = "GAGTCCTAGCAGAAGAAGAA";
+			   form.GenomicInputType[1].checked=true;
+			   javascript:hide_div_name('coordinatesOptions');
+			   javascript:show_div_name('genomicSeqOpt');
+			   return true;
+			}
+function validate() {
+				form = document.crista_form
+				if ((form.sgRNA_seq.value == "")){
+					alert("Please upload or type a multiple sequence alignment (MSA) file")
+					form.sgRNA_seq.focus()
+					return false
+				}
+
+				return true
+			}
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+    <link rel="icon" href="/miniLogo.gif">
+    <title>CRISTA</title>
+
+</head>
+
+<table width="100%" height=10% border="0">
+    <tr>
+        <td width=100% rowspan=3 align=center>
+            <A href="http://crista.tau.ac.il"><img src="/CRISTA_logo1_transperant.gif" alt="CRISTA Logo" width="649"
+                                                   height="219" valign=top align=center></A><br></td>
+    </tr>
+    <tr></tr>
+    <tr></tr>
+    <tr>
+        <td width=100% rowspan=1 align=center><font face="Maiandra GD" size="8" COLOR="#000000">CRISPR Target Assessment<br></font>
+
+    </tr>
+    <tr>
+        <td colspan=3 valign=center align=center bgcolor="#D8D8D8"><span class="title_menu">
+	<font face="Maiandra GD" size="4" COLOR="#000000">
+	<br>
+	<a href="http://crista.tau.ac.il/">HOME</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://crista.tau.ac.il/pair_score.html">sgRNA::DNA SCORE</a>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://crista.tau.ac.il/findofftargets.html">FIND OFF-TARGETS</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://crista.tau.ac.il/ingene.html">RANK TARGETS IN GENE</a>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>OVERVIEW</b>
+	</font></span></td>
+
+    </tr>
+</table>
+
+<hr>
+
+
+<title>CRISTA</title>
+
+<h1 align=center><font face="Maiandra GD" size="6" color="#003399">
+    CRISTA Overview</font></h1>
+
+
+<a NAME="overview"></a>
+<font face=Verdana size=4 color=#871F78>
+
+    <p align="center">
+        <font face=Verdana size=2 color=#A0A0A0>
+            Features and additional functionalities are constantly added to CRISTA. <br>If you encounter problems,
+        <a href="mailto:shiranabadi@mail.tau.ac.il?Subject=CRISTA">please let us know</a>.<br>
+        </font></p>
+</font>
+<table style="margin: 20px 100px;line-height:170%">
+    <tr>
+        <td align="left" width="1200"><font face=Arial size=4>
+            CRISTA is based on learning a regression model using the Random Forest algorithm within the machine learning
+            paradigm. CRISTA can be used to determine the propensity of a genomic site to be cleaved by a given sgRNA.
+            CRISTA
+            was trained on a large dataset assembled from published data of genome-wide unbiased methods for CRISPR-Cas9
+            cleavage sites profiling [1–5]. It accounts for the possibility of bulges and incorporates a wide range of
+            features
+            encompassing those that are specific to the genomic content, features that define the thermodynamics of the
+            sgRNA,
+            and features concerning the pairwise similarity between the sgRNA and the genomic target. Altogether, these
+            form a
+            complex model that can be used to predict the cleavage propensity of a selected genomic site. In contrast to
+            other
+            tools for scoring cleavage scores [6–14], the prediction function used by CRISTA cannot be translated to a
+            simple
+            function composed of the mismatched positions and the number/location of bulges. <br>
+            <br><br><br>
+        </font></td>
+    </tr>
+    <tr>
+        <td align="left" width="1200"><font face=Arial size=4>
+            <b>The website offers you several functionalities: <br><br></b>
+        </font></td>
+    </tr>
+    <tr>
+        <td align="left" width="1200"><font face=Arial size=4>
+
+            <ul style="margin: 5px 40px;">
+                <li><b>Predict cleavage scores for a given set of sgRNA::DNA pair</b></li>
+                <br>
+                This straight-forward use of CRISTA provides the predicted cleavage score for a given pair of a
+                nucleotide target and the corresponding sgRNA. The genomic target can be specified by its extended
+                genomic sequence (i.e., 100-nt upstream from the 5’-end and 100-nt downstream of the PAM site, 223-nt in
+                total) or the genomic coordinates in the desired genome reference. Due to the availability of a wide
+                range of genomic features for the hg19 dataset, the selection of a cell-line would utilize a broader
+                model of CRISTA.
+                A list of pairs can be uploaded using a csv file in both modes.<br><br><br>
+                <li><b>Detect possible off-targets throughout the genome</b></li>
+                <br>
+                Given an sgRNA and a genomic assembly, potential targets are detected using the Burrows-Wheeler Aligner
+                (<a href="http://bio-bwa.sourceforge.net/">BWA</a>). For each potential target the cleavage scores are predicted based on the whole collection of
+                features. The targets are then presented in a ranked order according to their CRISTA score. Please note
+                that the user cannot expect an immediate result since, as opposed to most currently available
+                alternatives, CRISTA considers possible bulges within the DNA site or sgRNA.<br><br><br>
+                <li><b>Rank possible targets in a given nuclear sequence</b></li>
+                <br>
+                Given a nucleotide sequence, all the potential targets within it, i.e., those that are followed by an
+                ‘NGG’ sequence (either in the forward or reverse strand), are detected and ranked according to the
+                cleavage score predicted by CRISTA. Note that 100-nt from the beginning and end of the sequence are
+                disregarded since some of the features implemented in CRISTA require 100-nt from each
+                end.<br><br><br><br>
+            </ul>
+        </font></td>
+    </tr>
+    <tr><td align="left" width="1200"><font size="4"><i>
+        <b>References:</b><br>
+        <br>1. Ran FA, Cong L, Yan WX, Scott D a., Gootenberg JS, Kriz AJ, et al. In vivo genome editing using
+        Staphylococcus aureus Cas9. Nature. 2015;520: 186–190. doi:10.1038/nature14299
+        <br>2. Slaymaker IM, Gao L, Zetsche B, Scott DA, Yan WX, Zhang F. Rationally engineered Cas9 nucleases with
+        improved specificity. Science (80- ). 2015; doi:10.1126/science.aad5227
+        <br>3. Tsai SQ, Zheng Z, Nguyen NT, Liebers M, Topkar V V, Thapar V, et al. GUIDE-seq enables genome-wide
+        profiling of off-target cleavage by CRISPR-Cas nucleases. Nat Biotechnol. 2014;33: 187–197. doi:10.1038/nbt.3117
+        <br>4. Kleinstiver BP, Prew MS, Tsai SQ, Topkar V V., Nguyen NT, Zheng Z, et al. Engineered CRISPR-Cas9
+        nucleases with altered PAM specificities. Nature. 2015;523: 481–5. doi:10.1038/nature14592
+        <br>5. Frock RL, Hu J, Meyers RM, Ho Y, Kii E, Alt FW. Genome-wide detection of DNA double-stranded breaks
+        induced by engineered nucleases. Nat Biotechnol. 2014;33: 179–186. doi:10.1038/nbt.3101
+        <br>6. Xiao A, Cheng Z, Kong L, Zhu Z, Lin S, Gao G, et al. CasOT: a genome-wide Cas9/gRNA off-target searching
+        tool. Bioinformatics. 2014; doi:10.1093/bioinformatics/btt764
+        <br>7. Haeussler M, Schönig K, Eckert H, Eschstruth A, Mianné J, Renaud J-B, et al. Evaluation of off-target and
+        on-target scoring algorithms and integration into the guide RNA selection tool CRISPOR. Genome Biol. 2016;17:
+        148. doi:10.1186/s13059-016-1012-2
+        <br>8. Heigwer F, Kerr G, Boutros M. E-CRISP: fast CRISPR target site identification. Nat Methods. Nature
+        Research; 2014;11: 122–123. doi:10.1038/nmeth.2812
+        <br>9. Hwang WY, Fu Y, Reyon D, Maeder ML, Tsai SQ, Sander JD, et al. Efficient genome editing in zebrafish
+        using a CRISPR-Cas system. Nat Biotechnol. Nature Research; 2013;31: 227–229. doi:10.1038/nbt.2501
+        <br>10. O’Brien A, Bailey TL. GT-Scan: identifying unique genomic targets. Bioinformatics. Oxford University
+        Press; 2014;30: 2673–2675. doi:10.1093/bioinformatics/btu354
+        <br>11. MacPherson CR, Scherf A. Flexible guide-RNA design for CRISPR applications using Protospacer Workbench.
+        Nat Biotechnol. Nature Research; 2015;33: 805. doi:10.1038/nbt.3291
+        <br>12. Marraffini LA, Sontheimer EJ, Marraffini L, Sontheimer E, Barrangou R, Fremaux C, et al. CRISPR
+        Interference Limits Horizontal Gene Transfer in Staphylococci by Targeting DNA. Science (80- ). BioMed Central;
+        2008;322: 1843–1845. doi:10.1126/science.1165771
+        <br>13. Naito Y, Hino K, Bono H, Ui-Tei K, S.F. A, S. B, et al. CRISPRdirect: software for designing CRISPR/Cas
+        guide RNA with reduced off-target sites. Bioinformatics. Oxford University Press; 2015;31: 1120–1123.
+        doi:10.1093/bioinformatics/btu743
+        <br>14. Xie S, Shen B, Zhang C, Huang X, Zhang Y, Cong L, et al. sgRNAcas9: A Software Package for Designing
+        CRISPR sgRNA and Evaluating Potential Off-Target Cleavage Sites. Khodursky AB, editor. PLoS One. Public Library
+        of Science; 2014;9: e100448. doi:10.1371/journal.pone.0100448
+        <br><br><br><br><br>
+
+    </i></font>
+        </td>
+    </tr>
+</table>
+
+<div id="footer">
+    <p align=center>
+        <a href="http://www.tau.ac.il/~itaymay/">Mayrose Lab</a>, Tel Aviv University<br>
+        Questions and comments are welcome! Please <span class="admin_link"><a
+            href="mailto:shiranabadi@mail.tau.ac.il?Subject=CRISTA">contact us.</a></span>
+    </p>
+</div><!-- end footer -->
+
+</html>
+
+

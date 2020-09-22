@@ -1,0 +1,11 @@
+piniu.tau.ac.il - - [24/May/2016:11:32:00 +0300] "GET / HTTP/1.1" 200 178
+piniu.tau.ac.il - - [24/May/2016:11:32:00 +0300] "GET /favicon.ico HTTP/1.1" 404 1421
+piniu.tau.ac.il - - [24/May/2016:11:32:00 +0300] "GET /favicon.ico HTTP/1.1" 404 1421
+piniu.tau.ac.il - - [24/May/2016:11:32:07 +0300] "GET / HTTP/1.1" 200 178
+piniu.tau.ac.il - - [24/May/2016:11:33:51 +0300] "GET / HTTP/1.1" 304 -
+britanya608-16.tau.ac.il - - [24/May/2016:08:37:43 +0000] "GET / HTTP/1.1" 200 178
+britanya608-16.tau.ac.il - - [24/May/2016:11:37:43 +0300] "GET /favicon.ico HTTP/1.1" 404 1421
+37.26.146.132 - - [24/May/2016:11:39:14 +0300] "GET / HTTP/1.1" 200 178
+37.26.146.132 - - [24/May/2016:11:39:15 +0300] "GET /favicon.ico HTTP/1.1" 404 1421
+sherman405-10.tau.ac.il - - [24/May/2016:14:38:29 +0000] "GET / HTTP/1.1" 200 178
+sherman405-10.tau.ac.il - - [24/May/2016:14:38:30 +0000] "GET /favicon.ico HTTP/1.1" 404 1421

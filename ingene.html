@@ -1,0 +1,183 @@
+<html>
+
+<head>
+    <META NAME="date" CONTENT="2016-09-07">
+    <META NAME="author" CONTENT="Shiran Abadi, Itay Mayrose">
+    <META NAME="keywords"
+          CONTENT="CRISTA, CRISPR, CRISPR-Cas9, genome editing, off target detection, machine learning, off-targets">
+    <META NAME="description"
+          CONTENT="CRISTA is a machine learning based tool for scoring a potential genomic site by a given sgRNA with the CRISPR-Cas9 mechanism">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="crista.css"/>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109832435-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-109832435-1');
+</script>
+
+    <script type="text/javascript">
+//------------------------------------
+// gets the element from various browsers
+function getElement(element_name){
+	var elem_to_return;
+	if( document.getElementById ) // this is the way the standards work    
+		elem_to_return = document.getElementById( element_name );  
+	else if( document.all ) // this is the way old msie versions work      
+		elem_to_return = document.all[element_name];  
+	else if( document.layers ) // this is the way nn4 works    
+		elem_to_return = document.layers[element_name]; 
+	return elem_to_return;
+}
+//------------------------------------
+//------------------------------------
+function show_div_name(div_id){
+        var show = getElement( div_id );
+        show.style.display = 'block';
+}
+//------------------------------------
+function hide_div_name(div_id){
+        var show = getElement( div_id );
+        show.style.display = 'none';
+}
+//------------------------------------
+function LoadExample(){
+			   form = document.ingene_form
+			   form.reset();
+			   form.genomicSeq.value="ATGGCTTGTTGGCCTCAGCTGAGGTTGCTGCTGTGGAAGAACCTCACTTTCAGAAGAAGACAAACAGTAAGCTTGGGTTTTTCAGCAGCGGGGGGTTCTCTCATTTTTTCTTTGTGGTTTTGAGTTGGGGATTGGAGGAGGGAGGGAGGGAAGGAAGCTGTGTTGGTTTTCACACAGGGATTGATGGAATCTGGCTCTTATGGACACAGGACTGTGTGGTCCGGATATGGCATGTGGCTTATCATAGAGGGCAGATTTGCAGCCAGGTAGAAATAGTAGCTTTGGTTTGTGCTACTGCCCAGGCATGAGTTCTGATCCCTAGGACCTGGCTCCGAATCGCCCCTGAGCACCCCACTTTTTCCTTTTGCTGCAGCCCTGGGAGCCACCTGGCTCTCCAAAAGCCCCTAATGGGCCCCAATCAATACCATTCAAATTAATACCTTAAATGTGGTGAGGCAGCTGTTGTTCAACTGAAACCAAATTATAAGTTGCATGGCAGTAAATGCTATCATGCTGATCACTAACTGATTAGGCATTATTAACTAGATTTATTCCTTTTAAGGCCCCGCGATGTACTGTTATTTCCACATGTTGTAGCTGGGGAACGTGCTACTCAGAGAGGTTAAGTAACTTGTCTGAGGTCCACACCACTAACAAGGAGCACAGGTATGTGGTCCGGATATGAGCATGTGGGGGTTCAAATCCAGATAATCTGACTTTGGAGCTGGGCTTTTCAGTGGTGTCATTATTTTGCCTATTCTCCATCTGAGAATATTGAAGTTTCTGACTCCTTCCTTGCCTTTCTCCCTGCCTCCCGTGGTTATCCCCAGGTCTTGGTGTTCCAGTCCTCTATGTCCGTCCTTACTCTTATTCCTTTGCTACAGTGTGATCCAGGGCTCCTGCCCCTTCTTATCCTGGTAGAGGGGGCCCACTTGCTGGGAAATTGTCTCCGCCATGGTTTATCCATGTTGTGTGTCCATTAGTGAGTAGTG";
+			   return true;
+			}
+function validate() {
+				form = document.ingene_form
+				var regex = /[AGCTUagctu\s]+/gi
+				var nospaceGenomicSeqVal = form.genomicSeq.value.replace(/\s/g, '')
+				var match = regex.exec(nospaceGenomicSeqVal)
+				form.genomicSeq.value = nospaceGenomicSeqVal
+
+				if (nospaceGenomicSeqVal != match){
+					alert("None ACGT characters in input")
+					form.genomicSeq.focus()
+					return false
+				}
+				
+				if (nospaceGenomicSeqVal.length < 29){
+					alert("Note that three additional nucleotides at each end are required")
+					form.genomicSeq.focus()
+					return false
+				}
+
+				return true
+			}
+
+
+
+    </script>
+
+    <link rel="icon" href="/miniLogo.gif">
+    <title>CRISTA</title>
+
+</head>
+
+
+<table width="100%" border="0">
+    <tr>
+        <td width=100% rowspan=3 align=center>
+            <A href="http://crista.tau.ac.il"><img src="/CRISTA_logo1_transperant.gif" alt="CRISTA Logo" width="649"
+                                                   height="219" align=center></A><br></td>
+    </tr>
+    <tr></tr>
+    <tr></tr>
+    <tr>
+        <td width=100% rowspan=1 align=center><font face="Maiandra GD" size="8" COLOR="#000000">CRISPR Target Assessment<br></font>
+
+    </tr>
+    <tr>
+        <td colspan=3 valign=center align=center bgcolor="#D8D8D8"><span class="title_menu">
+	<font face="Maiandra GD" size="4" COLOR="#000000">
+	<br>
+	<a href="http://crista.tau.ac.il/">HOME</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://crista.tau.ac.il/pair_score.html">sgRNA::DNA SCORE</a>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://crista.tau.ac.il/findofftargets.html">FIND OFF-TARGETS</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>RANK TARGETS IN GENE</b>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://crista.tau.ac.il/download.html">DOWNLOAD</a>
+	<!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://crista.tau.ac.il/overview.html">OVERVIEW</a>-->
+	</font></span></td>
+
+    </tr>
+</table>
+
+<hr>
+<a NAME="intro"></a>
+
+<p align="center">
+    <font face=Verdana size=2 color=#A0A0A0>
+        Features and additional functionalities are constantly added to CRISTA. <br>If you encounter problems,
+        <a href="mailto:shiranabadi@mail.tau.ac.il?Subject=CRISTA">please let us know</a>.<br>
+    </font></p>
+<p align="left" style="margin: 20px 20px;">
+    <font face=Verdana size=3>
+        <b>This page allows you to find possible NGG targets in a sequence and rank them according to CRISTA
+            predictions. <a href="index.html#ingene_description"><img src="i_quest.jpg" border="0"></a><br><br>
+        Once the reults are ready, you can find off-targets for a selected sgRNA.<br></b>
+        <!--<br><br><i>SOON! Finding the best sgRNA in an annotated gene will be added. Meanwhile, please insert the
+        nucleotide sequence below.</i>-->
+    </font></p>
+
+
+<form name="ingene_form"
+      action="/cgi-bin/inseq.cgi"
+      method="post"
+      ENCTYPE="multipart/form-data"
+      onsubmit="return validate()"
+      target = "_blank"
+      style="margin: auto 20px;">
+    <table cellspacing=0 cellpadding=10 width=625 border=0>
+        <tr align=left>
+            <td width=625>
+
+                <font face="Arial">
+                    <b>Insert the reference nucleotide sequence:</b><br><br>
+                    <textarea autofocus name="genomicSeq" rows=10 cols=150 id="genomicSeq"
+                              placeholder="Note that three additional nucleotides at each end are required"></textarea>
+                </font>
+
+                <br>
+                <font face="Arial"><br>Please enter your email address (Optional)
+                    <input type="text" name="email_add" size=50><br>
+                    <font size=2>Your email address will be used to update you the moment the results are
+                        ready. </font>
+                    <br><br>
+                    <input type=submit value="RUN" style="font-weight:bold;height: 35px;font-size:14">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="reset" value="Clear" id="buttons"
+                           style="font-weight:bold;height: 35px;font-size:14">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button type="button" onclick="LoadExample()"
+                            style="color:red;font-weight:bold;height: 35px;font-size:14">Load example
+                    </button>
+                    <br><br><br><br><br>
+                </font>
+            </td>
+        </tr>
+    </table>
+</form>
+
+<div id="footer">
+    <p align=center>
+        <a href="http://www.tau.ac.il/~itaymay/">Mayrose Lab</a>, Tel Aviv University<br>
+        Questions and comments are welcome! Please <span class="admin_link"><a
+            href="mailto:shiranabadi@mail.tau.ac.il?Subject=CRISTA">contact us.</a></span>
+        <br>
+    </p>
+</div><!-- end footer -->
+
+
+</html>
+
+
+
+
+
+

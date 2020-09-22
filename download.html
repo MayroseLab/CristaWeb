@@ -1,0 +1,189 @@
+<html>
+
+<head>
+    <META NAME="date" CONTENT="2016-09-07">
+    <META NAME="author" CONTENT="Shiran Abadi, Itay Mayrose">
+    <META NAME="keywords"
+          CONTENT="CRISTA, CRISPR, CRISPR-Cas9, genome editing, off target detection, machine learning, off-targets">
+    <META NAME="description"
+          CONTENT="CRISTA is a machine learning based tool for scoring a potential genomic site by a given sgRNA with the CRISPR-Cas9 mechanism">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="crista.css"/>
+
+    <!-- Google Analytics code start -->
+    <script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', 'UA-109832435-1', 'auto');
+		  ga('send', 'pageview');
+
+		</script>
+    <!-- Google Analytics code end -->
+
+
+    <script type="text/javascript">
+//------------------------------------
+// gets the element from various browsers
+function getElement(element_name){
+	var elem_to_return;
+	if( document.getElementById ) // this is the way the standards work    
+		elem_to_return = document.getElementById( element_name );  
+	else if( document.all ) // this is the way old msie versions work      
+		elem_to_return = document.all[element_name];  
+	else if( document.layers ) // this is the way nn4 works    
+		elem_to_return = document.layers[element_name]; 
+	return elem_to_return;
+}
+//------------------------------------
+//------------------------------------
+function show_div_name(div_id){
+        var show = getElement( div_id );
+        show.style.display = 'block';
+}
+//------------------------------------
+function hide_div_name(div_id){
+        var show = getElement( div_id );
+        show.style.display = 'none';
+}
+//------------------------------------
+function hide_or_show_celline(){
+        form = document.crista_form
+        if (form.genomeAssembly.value=="hg19"){
+            show_div_name("cellLine");
+            }
+        else{
+            hide_div_name("cellLine");
+            }
+}
+//------------------------------------
+function LoadExample(){
+			   form = document.crista_form
+			   form.reset();
+			   form.genomicSeq.value="GTTTCTCATCTGTGCCCCTCCCTCCCTGGCCCAGGTGAAGGTGTGGTTCCAGAACCGGAGGACAAAGTACAAACGGCAGAAGCTGGAGGAGGAAGGGCCTGAGTCCGAGCAGAAGAAGAAGGGCTCCCATCACATCAACCGGTGGCGCATTGCCACGAAGCAGGCCAATGGGGAGGACATCGATGTCACCTCCAATGACTAGGGTGGGCAACCACAAACCCAC";
+			   form.sgRNA_seq.value = "GAGTCCTAGCAGAAGAAGAA";
+			   form.GenomicInputType[1].checked=true;
+			   javascript:hide_div_name('coordinatesOptions');
+			   javascript:show_div_name('genomicSeqOpt');
+			   return true;
+			}
+function validate() {
+				form = document.crista_form
+				if ((form.sgRNA_seq.value == "") && (form.coordinates_input_file.value == "") && (form.seq_input_file.value == "")){
+					alert("Please upload a file or type in the requested fields")
+					form.sgRNA_seq.focus()
+					return false
+				}
+				if ((form.sgRNA_seq.value != "") && (form.sgRNA_seq.value.length != 20)) {
+					alert("The sgRNA sequence must be 20-nt long")
+					form.sgRNA_seq.focus()
+					return false
+				}
+				if ((form.genomicSeq.value != "") && (form.genomicSeq.value.length != 223)) {
+					alert("The genomic sequence must be 223-nt long")
+					form.genomicSeq.focus()
+					return false
+				}
+				var regex = /[ACGT]+/gi
+				var strippedSeqVal = form.sgRNA_seq.value.replace(/^\s+|\s+$/g, '')
+				var match = regex.exec(strippedSeqVal)
+				if (strippedSeqVal != match){
+					alert("None ACGTU characters in sgRNA")
+					form.sgRNA_seq.focus()
+					return false
+				}
+
+				return true
+			}
+
+    </script>
+
+    <link rel="icon" href="/miniLogo.gif">
+    <title>CRISTA</title>
+
+</head>
+
+
+<table width="100%" border="0">
+    <tr>
+        <td width=100% rowspan=3 align=center>
+            <A href="http://crista.tau.ac.il"><img src="/CRISTA_logo1_transperant.gif" alt="CRISTA Logo" width="649"
+                                                   height="219" align=center></A><br></td>
+    </tr>
+    <tr></tr>
+    <tr></tr>
+    <tr>
+        <td width=100% rowspan=1 align=center><font face="Maiandra GD" size="8" COLOR="#000000">CRISPR Target Assessment<br></font>
+
+    </tr>
+    <tr>
+        <td colspan=3 valign=center align=center bgcolor="#D8D8D8"><span class="title_menu">
+	<font face="Maiandra GD" size="4" COLOR="#000000">
+	<br>
+	<a href="http://crista.tau.ac.il/">HOME</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://crista.tau.ac.il/pair_score.html">sgRNA::DNA SCORE</a>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://crista.tau.ac.il/findofftargets.html">FIND OFF-TARGETS</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://crista.tau.ac.il/ingene.html">RANK TARGETS IN GENE</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>DOWNLOAD</b>
+        <!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://crista.tau.ac.il/overview.html">OVERVIEW</a>-->
+	</font></span></td>
+
+    </tr>
+</table>
+
+<hr>
+<h1 align=center><font face="Maiandra GD" size="6" color="#003399">
+    Download CRISTA</font></h1>
+
+
+<a NAME="overview"></a>
+<font face=Verdana size=4 color=#871F78>
+
+
+</font>
+<table style="margin: 20px 100px;line-height:170%">
+    <tr>
+        <td align="left" width="2000"><font face=Arial size=4>
+            A source code for download is <a href="http://crista.tau.ac.il/CRISTA.zip" onclick="ga('send', 'event', 'Download', 'Downloaded', 'rate4site windows download');">available here</a>.  <br><br>
+            The code can be used to assess cleavage propensity of a genomic site by an sgRNA, according to CRISTA predictions.<br>
+            CRISTA computes various features of the genomic content and the applied sgRNA, that depend on the availability of large resources.
+            Therefore, the source code for download is adapted for offline usage. This version accounts for less features and provides slightly reduced accuracy. <br>
+            The downloadable version averages the results over fewer repetitions of the model, to allow easy usage. <br>
+            However, you are welcome to create input files <a href="http://crista.tau.ac.il/pair_score.html">as instructed</a>
+            and use the full model on the online web server for assessment.
+            <br><br>
+            <u><b>Input:</b></u><br>
+            <span style="display:inline-block; width: 40;"></span><u>sgRNA:</u> a 20-nt long sequence<br>
+            <span style="display:inline-block; width: 40;"></span><u>Genomic target:</u> the 23-nt sequence must be surrounded by 3 additional nucleotides at each end
+            <br><br>
+
+            <u><b>Usage example:</b></u><br>
+            <span style="display:inline-block; width: 40;"></span>python CRISTA.py &nbsp;&nbsp;<b>-s</b> &nbsp;CTCAGCTGAGGTTGCTGCTG &nbsp;&nbsp;&nbsp;<b>-d</b> &nbsp;GGCCTCAGCTGAGGTTGCTGCTGTGGAAG<br><br>
+
+            <u><b>Dependencies:</b></u><br>
+            <span style="display:inline-block; width: 40;"></span>- Python 3.<br>
+            <span style="display:inline-block; width: 40;"></span>- Modules: numpy, sklearn, pickle, and argparse.<br><br>
+
+        </font></td>
+    </tr>
+    <tr>
+        <!--       <td align="center" width="2000"><font face=Arial size=6>
+                   <b>Thank you for using CRISTA!</b>
+               </font></td> -->
+    </tr>
+
+</table>
+<br><br><br><br><br>
+<div id="footer">
+    <p align=center>
+        <a href="http://www.tau.ac.il/~itaymay/">Mayrose Lab</a>, Tel Aviv University<br>
+        Questions and comments are welcome! Please <span class="admin_link"><a
+            href="mailto:shiranabadi@mail.tau.ac.il?Subject=CRISTA">contact us.</a></span>
+    </p>
+</div><!-- end footer -->
+
+</html>
+
+
