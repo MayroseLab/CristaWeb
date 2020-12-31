@@ -1,0 +1,307 @@
+<html>
+
+<head>
+    <META NAME="date" CONTENT="2016-09-07">
+    <META NAME="author" CONTENT="Shiran Abadi, Itay Mayrose">
+    <META NAME="keywords"
+          CONTENT="CRISTA, CRISPR, CRISPR-Cas9, genome editing, off target detection, machine learning, off-targets">
+    <META NAME="description"
+          CONTENT="CRISTA is a machine learning based tool for scoring a potential genomic site by a given sgRNA with the CRISPR-Cas9 mechanism">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="crista.css"/>
+
+   <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109832435-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-109832435-1');
+</script>
+
+    <script type="text/javascript">
+//------------------------------------
+// gets the element from various browsers
+function getElement(element_name){
+	var elem_to_return;
+	if( document.getElementById ) // this is the way the standards work    
+		elem_to_return = document.getElementById( element_name );  
+	else if( document.all ) // this is the way old msie versions work      
+		elem_to_return = document.all[element_name];  
+	else if( document.layers ) // this is the way nn4 works    
+		elem_to_return = document.layers[element_name]; 
+	return elem_to_return;
+}
+//------------------------------------
+//------------------------------------
+function show_div_name(div_id){
+        var show = getElement( div_id );
+        show.style.display = 'block';
+}
+//------------------------------------
+function hide_div_name(div_id){
+        var show = getElement( div_id );
+        show.style.display = 'none';
+}
+//------------------------------------
+function hide_or_show_celline(){
+        form = document.crista_form
+        if (form.genomeAssembly.value=="hg19"){
+            show_div_name("cellLine");
+            }
+        else{
+            hide_div_name("cellLine");
+            }
+}
+//------------------------------------
+function LoadExample(){
+			   form = document.crista_form
+			   form.reset();
+			   form.genomicSeq.value="CCTGAGTCCGAGCAGAAGAAGAAGGGCTC";
+			   form.sgRNA_seq.value = "GAGTCCTAGCAGAAGAAGAA";
+			   form.GenomicInputType[1].checked=true;
+			   javascript:hide_div_name('coordinatesOptions');
+			   javascript:show_div_name('genomicSeqOpt');
+			   return true;
+			}
+
+
+function validate() {
+				form = document.crista_form
+
+				var regex = /[AGCTUagctu\s]+/gi
+				var sgrna_wospaces = form.sgRNA_seq.value.replace(/\s/g, '')
+				var sgrna_match = regex.exec(sgrna_wospaces)
+				form.sgRNA_seq.value = sgrna_wospaces
+				if ((sgrna_match != null) && (sgrna_wospaces != sgrna_match)){
+					alert("Non ACGTU characters in sgRNA")
+					form.sgRNA_seq.focus()
+					return false
+				}
+				if ((sgrna_wospaces == "") && (form.coordinates_input_file.value == "") && (form.seq_input_file.value == "")){
+					alert("Please upload a file or type in the requested fields")
+					form.sgRNA_seq.focus()
+					return false
+				}
+				if ((sgrna_wospaces != "") && (sgrna_wospaces.length != 20)) {
+					alert("The sgRNA sequence must be 20-nt long")
+					form.sgRNA_seq.focus()
+					return false
+				}
+
+				var genoseq_wospaces = form.genomicSeq.value.replace(/\s/g, '')
+				var genoseq_match = regex.exec(genoseq_wospaces)
+				form.genomicSeq.value = genoseq_wospaces
+				if ((form.genomicSeq.value != "") && (form.genomicSeq.value.length != 29)) {
+					alert("The genomic sequence must be 29-nt long")
+					form.genomicSeq.focus()
+					return false
+				}
+
+				
+				if (/\D/.test(form.startpos.value)) {
+					alert("The start position should be a numeric coordinate in the chromosome")
+					form.startpos.focus()
+					return false
+				}
+
+				return true
+			}
+//----------------------------
+function includeHTML() {
+  var z, i, elmnt, file, xhttp;
+  /* Loop through a collection of all HTML elements: */
+  z = document.getElementsByTagName("*");
+  for (i = 0; i < z.length; i++) {
+    elmnt = z[i];
+    /*search for elements with a certain atrribute:*/
+    file = elmnt.getAttribute("w3-include-html");
+    if (file) {
+      /* Make an HTTP request using the attribute value as the file name: */
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4) {
+          if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+          if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+          /* Remove the attribute, and call this function once more: */
+          elmnt.removeAttribute("w3-include-html");
+          includeHTML();
+        }
+      }
+      xhttp.open("GET", file, true);
+      xhttp.send();
+      /* Exit the function: */
+      return;
+    }
+  }
+}
+
+
+
+    </script>
+
+    <link rel="icon" href="/miniLogo.gif">
+    <title>CRISTA</title>
+
+</head>
+
+
+<table width="100%" border="0">
+    <tr>
+        <td width=100% rowspan=3 align=center>
+            <A href="http://crista.tau.ac.il"><img src="/CRISTA_logo1_transperant.gif" alt="CRISTA Logo" width="649"
+                                                   height="219" align=center></A><br></td>
+    </tr>
+    <tr></tr>
+    <tr></tr>
+    <tr>
+        <td width=100% rowspan=1 align=center><font face="Maiandra GD" size="8" COLOR="#000000">CRISPR Target Assessment<br></font>
+
+    </tr>
+    <tr>
+        <td colspan=3 valign=center align=center bgcolor="#D8D8D8"><span class="title_menu">
+	<font face="Maiandra GD" size="4" COLOR="#000000">
+	<br>
+	<a href="http://crista.tau.ac.il/">HOME</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>sgRNA::DNA SCORE</b>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://crista.tau.ac.il/findofftargets.html">FIND OFF-TARGETS</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://crista.tau.ac.il/ingene.html">RANK TARGETS IN GENE</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://crista.tau.ac.il/download.html">DOWNLOAD</a>
+	<!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://crista.tau.ac.il/overview.html">OVERVIEW</a>-->
+	</font></span></td>
+
+    </tr>
+</table>
+
+<hr>
+<a NAME="intro"></a>
+<p align="center">
+    <font face=Verdana size=2 color=#A0A0A0>
+        Features and additional functionalities are constantly added to CRISTA. <br>If you encounter problems,
+        <a href="mailto:shiranabadi@mail.tau.ac.il?Subject=CRISTA">please let us know</a>.<br>
+    </font></p>
+
+
+
+
+<form name="crista_form"
+      action="/cgi-bin/crista.cgi"
+      method="post"
+      ENCTYPE="multipart/form-data"
+      onsubmit="return validate()"
+      target="_blank"
+      style="margin: auto 20px;">
+    <table cellspacing=0 cellpadding=10 width=1050 border=0>
+        <tr align=left>
+            <td width=625>
+                <font face="Arial">
+                    <a name="predict"></a><b><u> Predict your sgRNA::DNA pairs scores <a href="index.html#pair_description"><img src="i_quest.jpg" border="0"></a></u></b><br><br>
+                    <a>
+
+        CRISTA accounts for the possibility of bulges and incorporates a wide range of features encompassing those that
+        are specific to the genomic content, features that define the thermodynamics of the sgRNA, and features concerning the pairwise similarity
+        between the sgRNA and the genomic target. <br>The features are computed according to the sgRNA and genomic coordinates or context you specify as input here, below.<br><br></a>
+                    <b>Type a 20-nt sgRNA: &nbsp; </b>
+                    <!--<textarea name="sgRNA_seq" rows=1 cols=1 id="sgRNA_seq" style="margin: 0px; width: 176px; height: 25px; resize: none;"></textarea><br><br>-->
+                    <input type="text" name="sgRNA_seq" size=30 value="GAGTCCTAGCAGAAGAAGAA"><br><br>
+
+                    <B>Target input type: </B>
+                    <input type="radio" name="GenomicInputType" value="GenomicCoordinates" 
+                           onclick="javascript:show_div_name('coordinatesOptions');javascript:hide_div_name('genomicSeqOpt')">
+                    <b>Genomic coordinates &nbsp;&nbsp;</b>
+                    <input type="radio" name="GenomicInputType" value="genomicSeq" checked="checked"
+                           onclick="javascript:hide_div_name('coordinatesOptions');javascript:show_div_name('genomicSeqOpt')">
+                    <b>Genomic site sequence &nbsp;&nbsp;</b>
+
+
+                    <div id="genomicSeqOpt" style="display:block">
+                        <br>
+                        <b>Type the genomic site sequence (29-nt):</b>
+                        <input name="genomicSeq" size=40 id="genomicSeq" value="CCTGAGTCCGAGCAGAAGAAGAAGGGCTC"></input>
+                        <font size=2><br>3-nt flanking sequences upstream and downstream</font><br>
+                        <!--<font size=2><br>100-nt upstream + target site (20-nt) + PAM (3-nt) + 100-nt
+                            downstream</font><br> -->
+
+                        <br><br><br><b>Alternatively, you may upload a file with multiple records <a
+                            href="/CRISTA_input_genomic_seqs.csv" download>(according to this template)</a>: </b>
+                        <input type="file" name="seq_input_file"><br>
+                    </div>
+
+                    <div id="coordinatesOptions" style="display:none">
+                        <br>
+                        Genome assembly:&nbsp;
+                        <select name="genomeAssembly" w3-include-html="genome_assemblies.html" onchange="javascript:hide_or_show_celline()"></select>
+                        <br><i><font face="Arial" size="2" COLOR="#A0A0A0">
+                        230 genome assemblies are available, including vertebrates, plants, yeast, insects and
+                        deuterostomes!<br>
+                        Is your reference of choice missing? <a
+                            href="mailto:shiranabadi@mail.tau.ac.il?Subject=CRISTA: add more genomic references">Please
+                        let
+                        us know</a>.</font></i>
+                        <!--<div id="cellLine"><br><br>Cell line:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <select name="cellLine">
+                                <option value="HEK293">HEK293</option>
+                                <option value="K562">K562</option>
+                                <option value="U2OS">U2OS</option>
+                            </select></div>-->
+                        <br><br>Chromosome:&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;
+                        <INPUT type="text" name="chromosome" size=3> &nbsp;&nbsp; <i><font face="Arial"
+                                                                                           size="2"
+                                                                                           COLOR="#A0A0A0">Write
+                        a legitimate chromosome number, e.g., 1, 22, X, Y</font></i>
+
+                        <br><br>Strand: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="strand" value="plusStrand"> + &nbsp;&nbsp;
+                        <input type="radio" name="strand" value="minusStrand"> - &nbsp;&nbsp;
+
+                        <br><br>5' start coordinate: &nbsp;
+                        <!--<textarea name="startpos" rows=1 cols=1 id="startpos" style="margin: 0px; width: 100px; height: 20px; resize: none;"></textarea>-->
+                        <input type="text" name="startpos" size=25><br>
+                        <br><br><br><b>Alternatively, you may upload a file with multiple records <a
+                            href="/CRISTA_input_genomic_coordinates.csv" download>(according to this template)</a>: </b>
+                        <input type="file" name="coordinates_input_file"><br>
+                    </div>
+
+                </font>
+
+                <br>
+                <font face="Arial"><br>Please enter your email address
+                    <input type="text" name="email_add" pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" required /><br>
+                    <font size=2>Your email address will be used to update you the moment the results are
+                        ready. </font>
+                    <br><br>
+                    <input type=submit value="RUN" style="font-weight:bold;height: 35px;font-size:14" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="reset" value="Clear" id="buttons"
+                           style="font-weight:bold;height: 35px;font-size:14">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button type="button" onclick="LoadExample()"
+                            style="color:red;font-weight:bold;height: 35px;font-size:14">Load example
+                    </button>
+                    <br><br><br><br><br>
+                </font>
+            </td>
+        </tr>
+    </table>
+</form>
+
+<script>
+    includeHTML();
+</script>
+
+<div id="footer">
+    <p align=center>
+        <a href="http://www.tau.ac.il/~itaymay/">Mayrose Lab</a>, Tel Aviv University<br>
+        Questions and comments are welcome! Please <span class="admin_link"><a
+            href="mailto:shiranabadi@mail.tau.ac.il?Subject=CRISTA">contact us.</a></span>
+        <br>
+    </p>
+</div><!-- end footer -->
+
+
+</html>
+
+
+
+
+
+

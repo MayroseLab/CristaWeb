@@ -1,0 +1,3 @@
+"Input_Table: CRISTA sgRNA and genomic coordinates. sgRNA sequences must be 20nt long. Genome assembly must be legitimate in UCSC (https://genome.ucsc.edu/cgi-bin/hgGateway). Cell-line is obligatory only for hg19 (293, K562 and U2OS are currently available). chromosome number must exist in the assembly (e.g., 1, 22, X, Y). strand options are + or -. start_coordinate is the 5' position of the 23nt target sequence in the chromosome.",,,,,,
+target_id,sgRNA_20nt,genome_assembly,cell_line,chromosome,strand,start_coordinate
+example,GAGTCCGAGCAGAAGAAGAA,hg19,293,2,+,73160982

@@ -1,0 +1,3 @@
+Input_Table: CRISTA sgRNA and genomic sequences. sgRNA sequences must be 20nt long. Target genomic DNA 23-nt sites must be surrounded by 3nt upstream and downstream,,
+target_id,sgRNA_20nt,dna_seq_29nt
+example,GAGTCCTAGCAGAAGAAGAA,CCTGAGTCCGAGCAGAAGAAGAAGGGCTC
